@@ -39,7 +39,7 @@ CMAKE_COLOR_MAKEFILE:BOOL=ON
 CMAKE_CUDA_ARCHITECTURES:STRING=52
 
 //CUDA compiler
-CMAKE_CUDA_COMPILER:FILEPATH=/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc
+CMAKE_CUDA_COMPILER:STRING=/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc
 
 //Flags used by the CUDA compiler during all build types.
 CMAKE_CUDA_FLAGS:STRING=
@@ -445,7 +445,7 @@ Unpacker_IS_TOP_LEVEL:STATIC=ON
 Unpacker_SOURCE_DIR:STATIC=/home/momedmoh/PackerUnapcker/Unpacker
 
 //Enable the OpenMP 2.0 CPU grid block back-end
-alpaka_ACC_CPU_B_OMP2_T_SEQ_ENABLE:BOOL=OFF
+alpaka_ACC_CPU_B_OMP2_T_SEQ_ENABLE:BOOL=ON
 
 //Enable the OpenMP 2.0 CPU block thread back-end
 alpaka_ACC_CPU_B_SEQ_T_OMP2_ENABLE:BOOL=OFF
