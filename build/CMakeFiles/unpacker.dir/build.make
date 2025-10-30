@@ -94,6 +94,8 @@ unpacker: CMakeFiles/unpacker.dir/src/Unpacker.cpp.o
 unpacker: CMakeFiles/unpacker.dir/build.make
 unpacker: /usr/lib64/librt.a
 unpacker: /usr/lib64/libboost_atomic.so.1.75.0
+unpacker: /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/libcudart.so
+unpacker: /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64/libcurand.so
 unpacker: CMakeFiles/unpacker.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable unpacker"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unpacker.dir/link.txt --verbose=$(VERBOSE)

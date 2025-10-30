@@ -64,25 +64,25 @@ ALPAKA_FN_HOST_ACC inline void readPayload(
 
 // ======== kernel ========
 struct UnpackKernel {
-  template <typename TAcc>
+  template <
+    typename TAcc,
+    typename RawView, typename SizeView, typename OffView,
+    typename ModTypeView, typename InnerView, typename OuterView,
+    typename OutDetView, typename OutXView, typename OutYView, typename OutZView,
+    typename OutWView, typename OutSeedView, typename OutMipView, typename OutModTypeView,
+    typename CounterPtr
+  >
   ALPAKA_FN_ACC void operator()(
       TAcc const& acc,
-      const unsigned char* raw,
-      const std::size_t* sizes,
-      const std::size_t* offsets,
-      const int* detIdxModuleType,
-      const uint32_t* innerDetIdForFlatIdx,
-      const uint32_t* outerDetIdForFlatIdx,
-      uint32_t* outDet,
-      uint16_t* outX,
-      uint16_t* outY,
-      uint8_t* outZ,
-      uint8_t* outWidth,
-      uint8_t* outIsSeed,
-      uint8_t* outMip,
-      uint8_t* outModType,
-      uint32_t* globalCounter
+      RawView raw, SizeView sizes, OffView offsets,
+      ModTypeView detIdxModuleType,
+      InnerView innerDetIdForFlatIdx,
+      OuterView outerDetIdForFlatIdx,
+      OutDetView outDet, OutXView outX, OutYView outY, OutZView outZ,
+      OutWView outWidth, OutSeedView outIsSeed, OutMipView outMip, OutModTypeView outModType,
+      CounterPtr globalCounter
   ) const {
+
     const uint32_t gtid = alpaka::getIdx<alpaka::Grid, alpaka::Threads>(acc)[0u];
     const uint32_t gdim = alpaka::getWorkDiv<alpaka::Grid, alpaka::Threads>(acc)[0u];
 
@@ -332,23 +332,12 @@ ClusterPropSoA UnpackerDriver::run(
   UnpackKernel kernel;
     alpaka::exec<Acc>(
     q, workDiv, kernel,
-    alpaka::getPtrNative(rawDev),
-    alpaka::getPtrNative(sizesDev),
-    alpaka::getPtrNative(offsDev),
-    alpaka::getPtrNative(modDev),
-    alpaka::getPtrNative(innerDev),
-    alpaka::getPtrNative(outerDev),
-    alpaka::getPtrNative(outDet),
-    alpaka::getPtrNative(outX),
-    alpaka::getPtrNative(outY),
-    alpaka::getPtrNative(outZ),
-    alpaka::getPtrNative(outW),
-    alpaka::getPtrNative(outSeed),
-    alpaka::getPtrNative(outMip),
-    alpaka::getPtrNative(outMType),
-    alpaka::getPtrNative(counter)
-);
-
+    rawDev.view(), sizesDev.view(), offsDev.view(),
+    modDev.view(), innerDev.view(), outerDev.view(),
+    outDet.view(), outX.view(), outY.view(), outZ.view(),
+    outW.view(), outSeed.view(), outMip.view(), outMType.view(),
+    alpaka::getPtrNative(counter) // counter is a single scalar, ptr is fine
+  );
 
   alpaka::wait(q);
 
