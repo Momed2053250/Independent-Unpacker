@@ -93,7 +93,6 @@ unpacker_EXTERNAL_OBJECTS =
 unpacker: CMakeFiles/unpacker.dir/src/Unpacker.cpp.o
 unpacker: CMakeFiles/unpacker.dir/build.make
 unpacker: /usr/lib64/librt.a
-unpacker: /usr/lib64/libboost_atomic.so.1.75.0
 unpacker: /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/libcudart.so
 unpacker: /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64/libcurand.so
 unpacker: CMakeFiles/unpacker.dir/link.txt
