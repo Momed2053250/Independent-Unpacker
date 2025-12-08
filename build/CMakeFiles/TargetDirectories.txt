@@ -6,3 +6,9 @@
 /home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/CMakeFiles/rebuild_cache.dir
 /home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/CMakeFiles/edit_cache.dir
 /home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/CMakeFiles/rebuild_cache.dir
+/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/CMakeFiles/edit_cache.dir
+/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/CMakeFiles/rebuild_cache.dir
+/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir
+/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir
+/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/src/CMakeFiles/edit_cache.dir
+/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/src/CMakeFiles/rebuild_cache.dir

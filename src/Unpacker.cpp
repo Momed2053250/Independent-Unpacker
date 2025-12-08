@@ -322,9 +322,16 @@ ClusterPropSoA UnpackerDriver::run(
     alpaka::memcpy(q, counter, hostCnt);
     alpaka::wait(q);
   }
-
+  #ifdef ALPAKA_CUDA_ENABLED
   const uint32_t threadsPerBlock = 128;
+#else
+  const uint32_t threadsPerBlock = 1;
+#endif
+ #ifdef ALPAKA_CUDA_ENABLED
   const uint32_t blocks = (NSlinks + threadsPerBlock - 1) / threadsPerBlock;
+#else
+  const uint32_t blocks = 1;
+#endif
   auto workDiv = alpaka::WorkDivMembers<alpaka::DimInt<1>, Idx>(
       alpaka::Vec<alpaka::DimInt<1>, Idx>::all(blocks),
       alpaka::Vec<alpaka::DimInt<1>, Idx>::all(threadsPerBlock),
@@ -396,33 +403,52 @@ ClusterPropSoA UnpackerDriver::run(
 } // namespace ot
 
 // ======== minimal test harness ========
+// ======== minimal test harness ========
 int main() {
+  
+  // == Dummy data test == 
   // keep synthetic test minimal
   const std::size_t numSlinks = 1;
   std::vector<unsigned char> linear;
   std::vector<std::size_t> sizes(numSlinks, 0), offsets(numSlinks, 0);
 
-  // header (4 words) + offset table (MODULES_PER_SLINK words) + chHeader + 1 payload line
-  const int fakeWords = HEADER_N_LINES + MODULES_PER_SLINK + 2;
-  linear.resize(fakeWords * N_BYTES_PER_WORD, 0);
+  // Total size: header + offset table + channel header + 1 cluster (32 bits)
+  const int totalWords = HEADER_N_LINES + MODULES_PER_SLINK + 2; // +2 for chHeader + cluster
+  linear.resize(totalWords * N_BYTES_PER_WORD, 0);
   sizes[0] = linear.size();
   offsets[0] = 0;
 
-  // offset table: channel 0 -> offset 0
-  {
-    auto p = reinterpret_cast<uint32_t*>(linear.data() + HEADER_N_LINES * N_BYTES_PER_WORD);
-    p[0] = 0x00000000u; // ch0=0, ch1=0
+  // Fill with some dummy non-zero data
+  for (size_t i = 0; i < linear.size(); ++i) {
+    linear[i] = 0xAA; // Pattern to see if data is read
   }
 
-  // channel header at start of payload (1 strip, 0 pixel)w
-  const size_t offsetTableStart = (HEADER_N_LINES + MODULES_PER_SLINK) * N_BYTES_PER_WORD;
+  // offset table: channel 0 -> offset 0 (points to start of payload)
   {
-    const uint32_t chHeader = 0x00000001u;
-    linear[offsetTableStart + 0] = static_cast<unsigned char>((chHeader >> 24) & 0xFF);
-    linear[offsetTableStart + 1] = static_cast<unsigned char>((chHeader >> 16) & 0xFF);
-    linear[offsetTableStart + 2] = static_cast<unsigned char>((chHeader >> 8) & 0xFF);
-    linear[offsetTableStart + 3] = static_cast<unsigned char>(chHeader & 0xFF);
+    auto p = reinterpret_cast<uint32_t*>(linear.data() + HEADER_N_LINES * N_BYTES_PER_WORD);
+    p[0] = 0x00000000u; // ch0=0, ch1=0 (offset in WORDS, not bytes!)
   }
+
+  // Channel 0 payload starts here (offset 0 means start immediately after offset table)
+  const size_t payloadStart = (HEADER_N_LINES + MODULES_PER_SLINK) * N_BYTES_PER_WORD;
+  
+  // Channel header: bit format [L1ID:9][CIC_ERR:9][N_STRIP:7][N_PIXEL:7]
+  // Let's set: L1ID=0, CIC_ERR=0, N_STRIP=1, N_PIXEL=0
+  const uint32_t chHeader = (0 << 23) | (0 << 14) | (1 << 7) | 0;
+  linear[payloadStart + 0] = (chHeader >> 24) & 0xFF;
+  linear[payloadStart + 1] = (chHeader >> 16) & 0xFF;
+  linear[payloadStart + 2] = (chHeader >> 8) & 0xFF;
+  linear[payloadStart + 3] = chHeader & 0xFF;
+
+  // Strip cluster word (14 bits): [chip:3][addr:7][seed:1][width:3]
+  // Let's set: chip=0, addr=10, seed=1, width=3
+  const uint32_t stripWord = (0 << 11) | (10 << 4) | (1 << 3) | 3;
+  // Pack 14 bits into next 32-bit word (with 18 bits unused)
+  const uint32_t clusterPayload = (stripWord << 18); // Shift to high bits
+  linear[payloadStart + 4] = (clusterPayload >> 24) & 0xFF;
+  linear[payloadStart + 5] = (clusterPayload >> 16) & 0xFF;
+  linear[payloadStart + 6] = (clusterPayload >> 8) & 0xFF;
+  linear[payloadStart + 7] = clusterPayload & 0xFF;
 
   // maps for 1 slink × CICs_PER_SLINK
   const std::size_t M = numSlinks * CICs_PER_SLINK;
@@ -431,12 +457,16 @@ int main() {
 
   // channel 0 as 2S
   modType[0] = 1;
-  inner[0] = 11;
-  outer[0] = 22;
+  inner[0] = 11;  // seed -> inner det
+  outer[0] = 22;  // non-seed -> outer det
+
+  std::cout << "Test data size: " << linear.size() << " bytes\n";
+  std::cout << "Slink 0 size: " << sizes[0] << "\n";
 
   ot::UnpackerDriver drv;
+  std::cout << "Running unpacker...\n";
   auto out = drv.run(linear, sizes, offsets, modType, inner, outer);
-
+  std::cout << "Unpacker finished.\n";
   std::cout << "Decoded clusters: " << out.size() << "\n";
   for (std::size_t i = 0; i < out.size(); ++i) {
     auto const& c = out.clusters[i];
@@ -445,8 +475,8 @@ int main() {
               << " seed=" << int(c.isSeed) << " mip=" << int(c.mip)
               << " type=" << int(c.moduleType) << "\n";
   }
+  
   return 0;
 }
-
 
 

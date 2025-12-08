@@ -142,6 +142,32 @@ alpakaIde/fast:
 	$(MAKE) $(MAKESILENT) -f alpaka_build/CMakeFiles/alpakaIde.dir/build.make alpaka_build/CMakeFiles/alpakaIde.dir/build
 .PHONY : alpakaIde/fast
 
+#=============================================================================
+# Target rules for targets named Catch2
+
+# Build rule for target.
+Catch2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Catch2
+.PHONY : Catch2
+
+# fast build rule for target.
+Catch2/fast:
+	$(MAKE) $(MAKESILENT) -f alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir/build.make alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir/build
+.PHONY : Catch2/fast
+
+#=============================================================================
+# Target rules for targets named Catch2WithMain
+
+# Build rule for target.
+Catch2WithMain: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Catch2WithMain
+.PHONY : Catch2WithMain
+
+# fast build rule for target.
+Catch2WithMain/fast:
+	$(MAKE) $(MAKESILENT) -f alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/build.make alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/build
+.PHONY : Catch2WithMain/fast
+
 src/Unpacker.o: src/Unpacker.cpp.o
 .PHONY : src/Unpacker.o
 
@@ -175,6 +201,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... alpakaIde"
+	@echo "... Catch2"
+	@echo "... Catch2WithMain"
 	@echo "... unpacker"
 	@echo "... src/Unpacker.o"
 	@echo "... src/Unpacker.i"

@@ -10,15 +10,14 @@ using Dim = alpaka::DimInt<1>;
 using Idx = std::size_t;
 
 // ===== Alpaka Acc type selection for Maxwell =====
-//#if defined(ALPAKA_ACC_GPU_CUDA_ENABLE) && ALPAKA_ACC_GPU_CUDA_ENABLE
-  // Maxwell-optimized CUDA backend
+// ===== Alpaka Acc type selection =====
+#if defined(ALPAKA_CUDA_ENABLED)
   using Acc = alpaka::AccGpuCudaRt<Dim, Idx>;
   using Queue = alpaka::QueueCudaRtNonBlocking;
-//#else
-  // CPU fallback
-//  using Acc = alpaka::AccCpuSerial<Dim, Idx>;
- // using Queue = alpaka::QueueCpuBlocking;
-//#endif
+#else //defined(ALPAKA_CPU_SERIAL_ENABLED)
+  using Acc = alpaka::AccCpuSerial<Dim, Idx>;
+  using Queue = alpaka::QueueCpuBlocking;
+#endif
 
 namespace ot {
 

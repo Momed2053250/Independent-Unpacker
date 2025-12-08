@@ -14,9 +14,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -cuda")
 enable_language(CUDA)
 
 # Alpaka backends
-set(alpaka_ACC_CPU_B_SEQ_T_SEQ_ENABLE  OFF  CACHE BOOL "CPU serial" FORCE)
+set(alpaka_ACC_CPU_B_SEQ_T_SEQ_ENABLE  ON  CACHE BOOL "CPU serial" FORCE)  # CHANGED: OFF -> ON
 set(alpaka_ACC_CPU_B_OMP2_T_SEQ_ENABLE OFF  CACHE BOOL "CPU OpenMP" FORCE)
-set(alpaka_ACC_GPU_CUDA_ENABLE          ON  CACHE BOOL "GPU CUDA" FORCE)
+set(alpaka_ACC_GPU_CUDA_ENABLE          OFF  CACHE BOOL "GPU CUDA" FORCE)
 set(alpaka_ACC_GPU_HIP_ENABLE           OFF CACHE BOOL "GPU HIP" FORCE)
 set(alpaka_ACC_GPU_SYCL_ENABLE          OFF CACHE BOOL "GPU SYCL" FORCE)
 
@@ -32,8 +32,11 @@ endif()
 # Executable
 add_executable(unpacker src/Unpacker.cpp)
 target_include_directories(unpacker PRIVATE ${CMAKE_SOURCE_DIR}/include)
-if(ALPAKA_ACC_GPU_CUDA_ENABLE)
-    target_compile_definitions(unpacker PRIVATE USE_CUDA=1)
+if(alpaka_ACC_GPU_CUDA_ENABLE)  # CHANGED: ALPAKA_ACC_GPU_CUDA_ENABLE -> alpaka_ACC_GPU_CUDA_ENABLE
+    target_compile_definitions(unpacker PRIVATE ALPAKA_CUDA_ENABLED=1)  # CHANGED: USE_CUDA=1 -> ALPAKA_CUDA_ENABLED=1
+endif()
+if(alpaka_ACC_CPU_B_SEQ_T_SEQ_ENABLE)  # ADDED: CPU backend definition
+    target_compile_definitions(unpacker PRIVATE ALPAKA_CPU_SERIAL_ENABLED=1)
 endif()
 target_link_libraries(unpacker PRIVATE alpaka::alpaka)
 if(USE_OPENMP)
@@ -52,3 +55,19 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang")
 elseif (MSVC)
     target_compile_options(unpacker PRIVATE /W4)
 endif()
+
+# Integration test using real PackedData.root (no Catch2 needed)
+# COMMENTED OUT to avoid ROOT warnings
+# find_package(ROOT REQUIRED COMPONENTS Core Tree)
+
+# add_executable(test_unpacker_data
+#     test/Unpacker_data_integration.cpp
+# )
+
+# target_link_libraries(test_unpacker_data
+#     PRIVATE
+#         alpaka::alpaka            # CHANGED: unpacker -> alpaka::alpaka
+#         ROOT::Core
+#         ROOT::Tree
+# )
+# target_include_directories(test_unpacker_data PRIVATE ${CMAKE_SOURCE_DIR}/include)  # ADDED
