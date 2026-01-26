@@ -1,0 +1,2 @@
+/usr/bin/ar qc libunpacker_lib.a CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o
+/usr/bin/ranlib libunpacker_lib.a

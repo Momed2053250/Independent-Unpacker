@@ -66,7 +66,8 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir/catch2/internal/catch_c
   /usr/include/bits/types/struct_timespec.h /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/thread-shared-types.h \
   /usr/include/bits/pthreadtypes-arch.h /usr/include/bits/wordsize.h \
-  /usr/include/bits/struct_mutex.h /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
   /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/alloca.h \
   /usr/include/alloca.h /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h \
   /usr/include/bits/stdlib-float.h \
@@ -307,7 +308,7 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir/catch2/internal/catch_c
   /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h \
   /usr/lib/gcc/x86_64-redhat-linux/11/include/stdarg.h \
   /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__fpos64_t.h \
-  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/struct_FILE.h /usr/include/bits/wordsize.h \
   /usr/include/bits/types/cookie_io_functions_t.h \
   /usr/include/bits/stdio_lim.h \
   /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/cerrno \
@@ -337,26 +338,4 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir/catch2/internal/catch_c
   /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/stl_tempbuf.h \
   /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/uniform_int_dist.h \
   /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/pstl/glue_algorithm_defs.h \
-  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/nvhpc/pstl_config.hpp \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/pstl/glue_algorithm_defs.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/functional \
-  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/c++config.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/tuple \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/array \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/uses_allocator.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/invoke.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/refwrap.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/std_function.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/typeinfo \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/unordered_map \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/ext/aligned_buffer.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/hashtable.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/hashtable_policy.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/enable_special_members.h \
-  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/c++config.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/node_handle.h \
-  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/alloc_traits.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/unordered_map.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/bits/erase_if.h \
-  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/c++config.h \
-  /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/pstl/execution_defs.h 
+  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/nvhpc/pstl_config.hpp 

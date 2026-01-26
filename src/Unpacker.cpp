@@ -4,10 +4,8 @@
 #include <vector>
 #include <cstdint>
 
-//
 using namespace std;
 
-// ======== device helpers ========
 ALPAKA_FN_HOST_ACC inline int createMask(int nBits) { return (1 << nBits) - 1; }
 
 ALPAKA_FN_HOST_ACC inline uint32_t readLine(const unsigned char* dataPtr, int byteIdx) {
@@ -17,8 +15,8 @@ ALPAKA_FN_HOST_ACC inline uint32_t readLine(const unsigned char* dataPtr, int by
           static_cast<uint32_t>(dataPtr[byteIdx + 3]);
 }
 
-ALPAKA_FN_HOST_ACC inline int getLineIndex(int byteBase, unsigned int iline) {
-  return byteBase + static_cast<int>(iline * N_BYTES_PER_WORD);
+ALPAKA_FN_HOST_ACC inline int getLineIndex(int channelIdx, unsigned int iline) {
+  return channelIdx + N_BYTES_PER_WORD + static_cast<int>(iline * N_BYTES_PER_WORD);
 }
 
 ALPAKA_FN_HOST_ACC inline void readPayload(
@@ -62,7 +60,6 @@ ALPAKA_FN_HOST_ACC inline void readPayload(
   }
 }
 
-// ======== kernel ========
 struct UnpackKernel {
   template <typename TAcc>
   ALPAKA_FN_ACC void operator()(
@@ -100,12 +97,11 @@ struct UnpackKernel {
 
     const uint32_t NSlinks = (MAX_DTC_ID - MIN_DTC_ID + 1) * SLINKS_PER_DTC;
 
-    for (uint32_t sl = gtid; sl < NSlinks; sl += gdim) {
-      if (sizes[sl] == 0u) continue;
+    for (uint32_t frdId = gtid; frdId < NSlinks; frdId += gdim) {
+      if (sizes[frdId] == 0u) continue;
 
-      const unsigned char* dataPtr = raw + offsets[sl];
+      const unsigned char* dataPtr = raw + offsets[frdId];
 
-      // read offset table (immediately after header + module table)
       const size_t nOffsetsLines = MaxOffsetWords;
       const size_t initByte = HEADER_N_LINES * N_BYTES_PER_WORD;
       for (size_t k = 0; k < nOffsetsLines; ++k) {
@@ -113,48 +109,50 @@ struct UnpackKernel {
         offsetWords[k] = readLine(dataPtr, byteIdx);
       }
 
-      for (unsigned iChannel = 0; iChannel < static_cast<unsigned>(CICs_PER_SLINK); ++iChannel) {
-        const unsigned flatIdx = sl * CICs_PER_SLINK + iChannel;
-        const int moduleType = detIdxModuleType[flatIdx]; // 0:undef, 1:2S, 2:PS
+      for (unsigned int iChannel = 0; iChannel < CICs_PER_SLINK; ++iChannel) {
+        const unsigned flatIdx = frdId * CICs_PER_SLINK + iChannel;
+
+        const int moduleType = detIdxModuleType[flatIdx];
         if (moduleType == 0) continue;
+
         const bool is2SModule = (moduleType == 1);
 
         const size_t offsetTableStart = (HEADER_N_LINES + MODULES_PER_SLINK) * N_BYTES_PER_WORD;
+
         const int wordIdx = static_cast<int>(iChannel / 2);
+
         const uint16_t channelOffset16 = (iChannel % 2 == 0)
-          ? static_cast<uint16_t>(offsetWords[wordIdx] & 0xFFFFu) // if true
-          : static_cast<uint16_t>(offsetWords[wordIdx] >> 16); // if false 
-        const int byteBase = static_cast<int>(offsetTableStart + channelOffset16 * N_BYTES_PER_WORD);
+          ? static_cast<uint16_t>(offsetWords[wordIdx] & 0xFFFFu)
+          : static_cast<uint16_t>(offsetWords[wordIdx] >> 16);
 
-        // channel header
-        const uint32_t chHeaderWord = readLine(dataPtr, byteBase);
-        const unsigned numStripClusters =
+        const int idx = static_cast<int>(offsetTableStart + channelOffset16 * N_BYTES_PER_WORD);
+
+        const uint32_t chHeaderWord = readLine(dataPtr, idx);
+        const unsigned int numStripClusters =
           (chHeaderWord >> (N_BITS_PER_WORD - L1ID_BITS - CIC_ERROR_BITS - N_STRIP_CLUSTER_BITS)) & N_CLUSTER_MASK;
-        const unsigned numPixelClusters = chHeaderWord & N_CLUSTER_MASK;
+        const unsigned int numPixelClusters = chHeaderWord & N_CLUSTER_MASK;
 
-        // payload lines
         unsigned int nLines = 0;
         if (numStripClusters + numPixelClusters > 0) {
           const unsigned int neededBits =
             numStripClusters * SS_CLUSTER_BITS + numPixelClusters * PX_CLUSTER_BITS;
           nLines = static_cast<unsigned int>(neededBits / N_BITS_PER_WORD) + 1;
         }
-
         if (nLines > MaxPayloadLines) nLines = MaxPayloadLines;
-        for (unsigned k = 0; k < nLines; ++k) {
-          const int byteIdx = getLineIndex(byteBase, k);
+
+        for (unsigned int k = 0; k < nLines; ++k) {
+          const int byteIdx = getLineIndex(idx, k);
           lines[k] = readLine(dataPtr, byteIdx);
         }
 
-        // unpack
         int nAvailableBits = N_BITS_PER_WORD;
         int iLine = 0;
         int bitsToRead = 0;
         int nFullClustersStrip = 0;
         int nFullClustersPix = 0;
 
-        const unsigned useStrip = (numStripClusters <= static_cast<unsigned>(MaxStripClusters)) ? numStripClusters : MaxStripClusters;
-        const unsigned usePixel = (numPixelClusters <= static_cast<unsigned>(MaxPixelClusters)) ? numPixelClusters : MaxPixelClusters;
+        const unsigned int useStrip = (numStripClusters <= MaxStripClusters) ? numStripClusters : MaxStripClusters;
+        const unsigned int usePixel = (numPixelClusters <= MaxPixelClusters) ? numPixelClusters : MaxPixelClusters;
 
         if (useStrip > 0) {
           readPayload(stripClusterWords, lines, static_cast<int>(useStrip),
@@ -168,20 +166,20 @@ struct UnpackKernel {
         }
 
         const uint32_t writeCount = is2SModule ? useStrip : (useStrip + usePixel);
-        if (writeCount == 0u) continue;
+        if (writeCount == 0) continue;
         const uint32_t base = alpaka::atomicAdd(acc, globalCounter, writeCount);
+
         const uint32_t innerDet = innerDetIdForFlatIdx[flatIdx];
         const uint32_t outerDet = outerDetIdForFlatIdx[flatIdx];
-        const uint8_t parity = static_cast<uint8_t>(iChannel & 0x1);
+        const uint8_t  parity   = static_cast<uint8_t>(iChannel & 0x1);
 
-        // 2S strips
         if (is2SModule) {
-          for (unsigned ic = 0; ic < useStrip; ++ic) {
+          for (unsigned int ic = 0; ic < useStrip; ++ic) {
             const uint32_t word = stripClusterWords[ic];
             const uint32_t chip = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS)) & CHIP_ID_MAX_VALUE;
             const uint32_t addr = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_ONLY_BITS_2S)) & SCLUSTER_ADDRESS_MASK;
             const bool     seed = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_BITS_2S)) & IS_SEED_SENSOR_MASK;
-            uint32_t       w    = word & WIDTH_MAX_VALUE;  // WIDTH_BITS = 3
+            uint32_t       w    = word & WIDTH_MAX_VALUE;
             if (w == 0) w = 8;
 
             const uint32_t outIdx = base + ic;
@@ -195,8 +193,7 @@ struct UnpackKernel {
             outModType[outIdx] = 1u;
           }
         } else {
-          // PS strips (outer) — decode with SS bit-widths and MIP field
-          for (unsigned ic = 0; ic < useStrip; ++ic) {
+          for (unsigned int ic = 0; ic < useStrip; ++ic) {
             const uint32_t word = stripClusterWords[ic];
             const uint32_t chip = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS)) & CHIP_ID_MAX_VALUE;
             const uint32_t addr = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_BITS_PS)) & SCLUSTER_ADDRESS_PS_MAX_VALUE;
@@ -215,8 +212,7 @@ struct UnpackKernel {
             outModType[outIdx] = 2u;
           }
 
-          // PS pixels (inner)
-          for (unsigned ic = 0; ic < usePixel; ++ic) {
+          for (unsigned int ic = 0; ic < usePixel; ++ic) {
             const uint32_t word = pixelClusterWords[ic];
             const uint32_t chip = (word >> (PX_CLUSTER_BITS - CHIP_ID_BITS)) & CHIP_ID_MAX_VALUE;
             const uint32_t addr = (word >> (PX_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_BITS_PS)) & SCLUSTER_ADDRESS_PS_MAX_VALUE;
@@ -240,17 +236,9 @@ struct UnpackKernel {
   }
 };
 
-// ======== host driver ========
-// This defines a translation-unit–local template alias named Buf that yields the exact return type
-// of an Alpaka buffer allocation call for a given element type T. Placing it inside an anonymous namespace 
-// gives the alias internal linkage so it is visible only inside this .cpp file.
-
-// !! alpaka::allocBuf<TElem>(device, extents) --> Device given here as DevCpu !! 
 namespace {
-
 template <typename T> using Buf = decltype(alpaka::allocBuf<T, Idx>(std::declval<alpaka::DevCpu>(), alpaka::Vec<alpaka::DimInt<1>, Idx>::all(0)));
-
-} // anon
+}
 
 namespace ot {
 
@@ -269,23 +257,12 @@ ClusterPropSoA UnpackerDriver::run(
   const std::size_t maxClusters =
       (N_CLUSTER_MASK + 1) * CICs_PER_SLINK * (MAX_DTC_ID - MIN_DTC_ID + 1) * SLINKS_PER_DTC;
 
-  // Buffer allocations: 
-  /*
-  Raw Data 
-  Sizes
-  Offsets
-  Module Type 
-  Inner DetId
-  Outer DetId
-  */
   auto rawDev    = alpaka::allocBuf<unsigned char, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(linearRaw.size()));
   auto sizesDev  = alpaka::allocBuf<std::size_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(sizes.size()));
   auto offsDev   = alpaka::allocBuf<std::size_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(offsets.size()));
   auto modDev    = alpaka::allocBuf<int, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(detIdxModuleType.size()));
   auto innerDev  = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(innerDetId.size()));
   auto outerDev  = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(outerDetId.size()));
-  /*
-  */
   auto outDet    = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
   auto outX      = alpaka::allocBuf<uint16_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
   auto outY      = alpaka::allocBuf<uint16_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
@@ -294,17 +271,15 @@ ClusterPropSoA UnpackerDriver::run(
   auto outSeed   = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
   auto outMip    = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
   auto outMType  = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  
-  // counter buff 
   auto counter   = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(1));
+  
   {
     auto host = alpaka::getDevByIdx(alpaka::PlatformCpu{}, 0);
     auto mkview = [&](auto const& vec, auto& devbuf){
       using Elem = std::remove_cv_t<std::remove_reference_t<decltype(vec[0])>>;
-      // alpaka extent represents the length you can iterate over or use when launching work.
       auto extent = alpaka::getExtents(devbuf)[0];
       auto hostbuf = alpaka::allocBuf<Elem, Idx>(host, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(extent));
-      auto* ptr = alpaka::getPtrNative(hostbuf); // ptr is Elem*
+      auto* ptr = alpaka::getPtrNative(hostbuf);
       std::memcpy(static_cast<void*>(ptr), vec.data(), vec.size() * sizeof(Elem));
       alpaka::memcpy(q, devbuf, hostbuf);
       alpaka::wait(q);
@@ -322,23 +297,22 @@ ClusterPropSoA UnpackerDriver::run(
     alpaka::memcpy(q, counter, hostCnt);
     alpaka::wait(q);
   }
+  
   #ifdef ALPAKA_CUDA_ENABLED
-  const uint32_t threadsPerBlock = 128;
-#else
-  const uint32_t threadsPerBlock = 1;
-#endif
- #ifdef ALPAKA_CUDA_ENABLED
+  const uint32_t threadsPerBlock = 1024;
   const uint32_t blocks = (NSlinks + threadsPerBlock - 1) / threadsPerBlock;
-#else
+  #else
+  const uint32_t threadsPerBlock = 1;
   const uint32_t blocks = 1;
-#endif
+  #endif
+  
   auto workDiv = alpaka::WorkDivMembers<alpaka::DimInt<1>, Idx>(
       alpaka::Vec<alpaka::DimInt<1>, Idx>::all(blocks),
       alpaka::Vec<alpaka::DimInt<1>, Idx>::all(threadsPerBlock),
       alpaka::Vec<alpaka::DimInt<1>, Idx>::all(1));
 
   UnpackKernel kernel;
-    alpaka::exec<Acc>(
+  alpaka::exec<Acc>(
     q, workDiv, kernel,
     alpaka::getPtrNative(rawDev),
     alpaka::getPtrNative(sizesDev),
@@ -355,7 +329,7 @@ ClusterPropSoA UnpackerDriver::run(
     alpaka::getPtrNative(outMip),
     alpaka::getPtrNative(outMType),
     alpaka::getPtrNative(counter)
-);
+  );
 
   alpaka::wait(q);
 
@@ -400,83 +374,10 @@ ClusterPropSoA UnpackerDriver::run(
   return out;
 }
 
-} // namespace ot
-
-// ======== minimal test harness ========
-// ======== minimal test harness ========
-int main() {
-  
-  // == Dummy data test == 
-  // keep synthetic test minimal
-  const std::size_t numSlinks = 1;
-  std::vector<unsigned char> linear;
-  std::vector<std::size_t> sizes(numSlinks, 0), offsets(numSlinks, 0);
-
-  // Total size: header + offset table + channel header + 1 cluster (32 bits)
-  const int totalWords = HEADER_N_LINES + MODULES_PER_SLINK + 2; // +2 for chHeader + cluster
-  linear.resize(totalWords * N_BYTES_PER_WORD, 0);
-  sizes[0] = linear.size();
-  offsets[0] = 0;
-
-  // Fill with some dummy non-zero data
-  for (size_t i = 0; i < linear.size(); ++i) {
-    linear[i] = 0xAA; // Pattern to see if data is read
-  }
-
-  // offset table: channel 0 -> offset 0 (points to start of payload)
-  {
-    auto p = reinterpret_cast<uint32_t*>(linear.data() + HEADER_N_LINES * N_BYTES_PER_WORD);
-    p[0] = 0x00000000u; // ch0=0, ch1=0 (offset in WORDS, not bytes!)
-  }
-
-  // Channel 0 payload starts here (offset 0 means start immediately after offset table)
-  const size_t payloadStart = (HEADER_N_LINES + MODULES_PER_SLINK) * N_BYTES_PER_WORD;
-  
-  // Channel header: bit format [L1ID:9][CIC_ERR:9][N_STRIP:7][N_PIXEL:7]
-  // Let's set: L1ID=0, CIC_ERR=0, N_STRIP=1, N_PIXEL=0
-  const uint32_t chHeader = (0 << 23) | (0 << 14) | (1 << 7) | 0;
-  linear[payloadStart + 0] = (chHeader >> 24) & 0xFF;
-  linear[payloadStart + 1] = (chHeader >> 16) & 0xFF;
-  linear[payloadStart + 2] = (chHeader >> 8) & 0xFF;
-  linear[payloadStart + 3] = chHeader & 0xFF;
-
-  // Strip cluster word (14 bits): [chip:3][addr:7][seed:1][width:3]
-  // Let's set: chip=0, addr=10, seed=1, width=3
-  const uint32_t stripWord = (0 << 11) | (10 << 4) | (1 << 3) | 3;
-  // Pack 14 bits into next 32-bit word (with 18 bits unused)
-  const uint32_t clusterPayload = (stripWord << 18); // Shift to high bits
-  linear[payloadStart + 4] = (clusterPayload >> 24) & 0xFF;
-  linear[payloadStart + 5] = (clusterPayload >> 16) & 0xFF;
-  linear[payloadStart + 6] = (clusterPayload >> 8) & 0xFF;
-  linear[payloadStart + 7] = clusterPayload & 0xFF;
-
-  // maps for 1 slink × CICs_PER_SLINK
-  const std::size_t M = numSlinks * CICs_PER_SLINK;
-  std::vector<int>      modType(M, 0);
-  std::vector<uint32_t> inner(M, 0), outer(M, 0);
-
-  // channel 0 as 2S
-  modType[0] = 1;
-  inner[0] = 11;  // seed -> inner det
-  outer[0] = 22;  // non-seed -> outer det
-
-  std::cout << "Test data size: " << linear.size() << " bytes\n";
-  std::cout << "Slink 0 size: " << sizes[0] << "\n";
-
-  ot::UnpackerDriver drv;
-  std::cout << "Running unpacker...\n";
-  auto out = drv.run(linear, sizes, offsets, modType, inner, outer);
-  std::cout << "Unpacker finished.\n";
-  std::cout << "Decoded clusters: " << out.size() << "\n";
-  for (std::size_t i = 0; i < out.size(); ++i) {
-    auto const& c = out.clusters[i];
-    std::cout << i << ": det=" << c.detId << " x=" << c.x << " y=" << c.y
-              << " z=" << int(c.z) << " w=" << int(c.width)
-              << " seed=" << int(c.isSeed) << " mip=" << int(c.mip)
-              << " type=" << int(c.moduleType) << "\n";
-  }
-  
-  return 0;
 }
 
-
+#ifndef NO_MAIN_IN_UNPACKER
+int main() {
+  return 0;
+}
+#endif

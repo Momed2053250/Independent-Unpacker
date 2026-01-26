@@ -1017,3 +1017,1062 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 5.14.0-570.33.2.el9_6.x86_64 - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is NVHPC, found in:
+        /home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCXX/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:1237 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCUDACompiler.cmake:75 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Checking whether the CUDA compiler is NVIDIA using "" matched "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
+      nvcc: NVIDIA (R) Cuda compiler driver
+      Copyright (c) 2005-2024 NVIDIA Corporation
+      Built on Tue_Oct_29_23:50:19_PDT_2024
+      Cuda compilation tools, release 12.6, V12.6.85
+      Build cuda_12.6.r12.6/compiler.35059454_0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:53 (__determine_compiler_id_test)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCUDACompiler.cmake:131 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" succeeded.
+      Compiler: /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc 
+      Build flags: 
+      Id flags: --keep;--keep-dir;tmp -v
+      
+      The output was:
+      0
+      #$ _NVVM_BRANCH_=nvvm
+      #$ _SPACE_= 
+      #$ _CUDART_=cudart
+      #$ _HERE_=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin
+      #$ _THERE_=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin
+      #$ _TARGET_SIZE_=
+      #$ _TARGET_DIR_=
+      #$ _TARGET_DIR_=targets/x86_64-linux
+      #$ TOP=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/..
+      #$ CICC_PATH=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../nvvm/bin
+      #$ NVVMIR_LIBRARY_DIR=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../nvvm/libdevice
+      #$ LD_LIBRARY_PATH=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../lib:/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/lib:/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/lib:/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/lib64:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/lib:/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/lib64:/home/momedmoh/.local/lib:
+      #$ PATH=/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../nvvm/bin:/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin:/software/cmake/3.31.6/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/mpi/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/bin:/cvmfs/cms.cern.ch/common:/home/momedmoh/.local/bin:/home/momedmoh/bin:/usr/share/Modules/bin:/usr/lpp/mmfs/bin:/usr/lib64/ccache:/afs/desy.de/common/passwd:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/opt/dell/srvadmin/bin
+      #$ INCLUDES="-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"  
+      #$ LIBRARIES=  "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"
+      #$ CUDAFE_FLAGS=
+      #$ PTXAS_FLAGS=
+      #$ rm tmp/a_dlink.reg.c
+      #$ gcc -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp4.ii" 
+      #$ cudafe++ --c++17 --gnu_version=110500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed  --m64 --parse_templates --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" 
+      #$ gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp1.ii" 
+      #$ "$CICC_PATH/cicc" --c++17 --gnu_version=110500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_52 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.cpp1.ii" -o "tmp/CMakeCUDACompilerId.ptx"
+      #$ ptxas -arch=sm_52 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_52.cubin" 
+      #$ fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " "--image3=kind=elf,sm=52,file=tmp/CMakeCUDACompilerId.sm_52.cubin" "--image3=kind=ptx,sm=52,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" 
+      #$ gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -c -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -Wno-psabi "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include" -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" -o "tmp/CMakeCUDACompilerId.o" 
+      #$ nvlink -m64 --arch=sm_52 --register-link-binaries="tmp/a_dlink.reg.c"  -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.sm_52.cubin" --host-ccbin "gcc"
+      #$ fatbinary --create="tmp/a_dlink.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " -link "--image3=kind=elf,sm=52,file=tmp/a_dlink.sm_52.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" 
+      #$ gcc -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -c -x c++ -DFATBINFILE="\\"tmp/a_dlink.fatbin.c\\"" -DREGISTERLINKBINARYFILE="\\"tmp/a_dlink.reg.c\\"" -I. -D__NV_EXTRA_INITIALIZATION= -D__NV_EXTRA_FINALIZATION= -D__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__  -Wno-psabi "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -m64 "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/crt/link.stub" -o "tmp/a_dlink.o" 
+      #$ g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" 
+      
+      
+      Compilation of the CUDA compiler identification source "CMakeCUDACompilerId.cu" produced "a.out"
+      
+      The CUDA compiler identification is NVIDIA, found in:
+        /home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/a.out
+      The host compiler identification is GNU
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/Internal/CMakeNVCCParseImplicitInfo.cmake:128 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCUDACompiler.cmake:242 (cmake_nvcc_parse_implicit_info)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CUDA nvcc implicit link information:
+        found 'PATH=' string: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../nvvm/bin:/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin:/software/cmake/3.31.6/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/mpi/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/bin:/cvmfs/cms.cern.ch/common:/home/momedmoh/.local/bin:/home/momedmoh/bin:/usr/share/Modules/bin:/usr/lpp/mmfs/bin:/usr/lib64/ccache:/afs/desy.de/common/passwd:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/opt/dell/srvadmin/bin]
+        found 'LIBRARIES=' string: ["-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"]
+        found 'INCLUDES=' string: ["-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"  ]
+        considering line: [#$ rm tmp/a_dlink.reg.c]
+        considering line: [gcc -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+        considering line: [cudafe++ --c++17 --gnu_version=110500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed  --m64 --parse_templates --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+        considering line: [gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp1.ii" ]
+        considering line: ["$CICC_PATH/cicc" --c++17 --gnu_version=110500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_52 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.cpp1.ii" -o "tmp/CMakeCUDACompilerId.ptx"]
+        considering line: [ptxas -arch=sm_52 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_52.cubin" ]
+        considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " "--image3=kind=elf,sm=52,file=tmp/CMakeCUDACompilerId.sm_52.cubin" "--image3=kind=ptx,sm=52,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" ]
+        considering line: [gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -c -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -Wno-psabi "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include" -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" -o "tmp/CMakeCUDACompilerId.o" ]
+        considering line: [nvlink -m64 --arch=sm_52 --register-link-binaries="tmp/a_dlink.reg.c"  -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.sm_52.cubin" --host-ccbin "gcc"]
+          ignoring nvlink line
+        considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " -link "--image3=kind=elf,sm=52,file=tmp/a_dlink.sm_52.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
+        considering line: [gcc -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -c -x c++ -DFATBINFILE="\\"tmp/a_dlink.fatbin.c\\"" -DREGISTERLINKBINARYFILE="\\"tmp/a_dlink.reg.c\\"" -I. -D__NV_EXTRA_INITIALIZATION= -D__NV_EXTRA_FINALIZATION= -D__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__  -Wno-psabi "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -m64 "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/crt/link.stub" -o "tmp/a_dlink.o" ]
+        considering line: [g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+          extracted link line: [g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+        considering line: []
+        extracted link launcher name: [g++]
+        found link launcher absolute path: [/usr/lib64/ccache/g++]
+      
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        link line: [cuda-fake-ld g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+          arg [cuda-fake-ld] ==> ignore
+          arg [g++] ==> ignore
+          arg [-D__CUDA_ARCH_LIST__=520] ==> ignore
+          arg [-D__NV_LEGACY_LAUNCH] ==> ignore
+          arg [-m64] ==> ignore
+          arg [-Wl,--start-group] ==> ignore
+          arg [tmp/a_dlink.o] ==> ignore
+          arg [tmp/CMakeCUDACompilerId.o] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> ignore
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib]
+          arg [-lcudadevrt] ==> lib [cudadevrt]
+          arg [-lcudart_static] ==> lib [cudart_static]
+          arg [-lrt] ==> lib [rt]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ldl] ==> lib [dl]
+          arg [-Wl,--end-group] ==> ignore
+          arg [-o] ==> ignore
+          arg [a.out] ==> ignore
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib]
+        implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
+        implicit objs: []
+        implicit dirs: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64;/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs;/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/Internal/CMakeNVCCParseImplicitInfo.cmake:146 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCUDACompiler.cmake:242 (cmake_nvcc_parse_implicit_info)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CUDA nvcc include information:
+        found 'PATH=' string: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../nvvm/bin:/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin:/software/cmake/3.31.6/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/mpi/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin:/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/bin:/cvmfs/cms.cern.ch/common:/home/momedmoh/.local/bin:/home/momedmoh/bin:/usr/share/Modules/bin:/usr/lpp/mmfs/bin:/usr/lib64/ccache:/afs/desy.de/common/passwd:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/opt/dell/srvadmin/bin]
+        found 'LIBRARIES=' string: ["-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"]
+        found 'INCLUDES=' string: ["-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"  ]
+        considering line: [#$ rm tmp/a_dlink.reg.c]
+        considering line: [gcc -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -E -x c++ -D__CUDACC__ -D__NVCC__  "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+        considering line: [cudafe++ --c++17 --gnu_version=110500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed  --m64 --parse_templates --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.cpp" --stub_file_name "CMakeCUDACompilerId.cudafe1.stub.c" --gen_module_id_file --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" "tmp/CMakeCUDACompilerId.cpp4.ii" ]
+        considering line: [gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -E -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -D__CUDACC__ -D__NVCC__  "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -include "cuda_runtime.h" -m64 "CMakeCUDACompilerId.cu" -o "tmp/CMakeCUDACompilerId.cpp1.ii" ]
+        considering line: ["$CICC_PATH/cicc" --c++17 --gnu_version=110500 --display_error_number --orig_src_file_name "CMakeCUDACompilerId.cu" --orig_src_path_name "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/3.31.6/CompilerIdCUDA/CMakeCUDACompilerId.cu" --allow_managed   -arch compute_52 -m64 --no-version-ident -ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 --include_file_name "CMakeCUDACompilerId.fatbin.c" -tused --module_id_file_name "tmp/CMakeCUDACompilerId.module_id" --gen_c_file_name "tmp/CMakeCUDACompilerId.cudafe1.c" --stub_file_name "tmp/CMakeCUDACompilerId.cudafe1.stub.c" --gen_device_file_name "tmp/CMakeCUDACompilerId.cudafe1.gpu"  "tmp/CMakeCUDACompilerId.cpp1.ii" -o "tmp/CMakeCUDACompilerId.ptx"]
+        considering line: [ptxas -arch=sm_52 -m64  "tmp/CMakeCUDACompilerId.ptx"  -o "tmp/CMakeCUDACompilerId.sm_52.cubin" ]
+        considering line: [fatbinary --create="tmp/CMakeCUDACompilerId.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " "--image3=kind=elf,sm=52,file=tmp/CMakeCUDACompilerId.sm_52.cubin" "--image3=kind=ptx,sm=52,file=tmp/CMakeCUDACompilerId.ptx" --embedded-fatbin="tmp/CMakeCUDACompilerId.fatbin.c" ]
+        considering line: [gcc -D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -c -x c++  -DCUDA_DOUBLE_MATH_FUNCTIONS -Wno-psabi "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include" -m64 "tmp/CMakeCUDACompilerId.cudafe1.cpp" -o "tmp/CMakeCUDACompilerId.o" ]
+        considering line: [nvlink -m64 --arch=sm_52 --register-link-binaries="tmp/a_dlink.reg.c"  -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib" -cpu-arch=X86_64 "tmp/CMakeCUDACompilerId.o"  -lcudadevrt  -o "tmp/a_dlink.sm_52.cubin" --host-ccbin "gcc"]
+          ignoring nvlink line
+        considering line: [fatbinary --create="tmp/a_dlink.fatbin" -64 --cicc-cmdline="-ftz=0 -prec_div=1 -prec_sqrt=1 -fmad=1 " -link "--image3=kind=elf,sm=52,file=tmp/a_dlink.sm_52.cubin" --embedded-fatbin="tmp/a_dlink.fatbin.c" ]
+        considering line: [gcc -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -c -x c++ -DFATBINFILE="\\"tmp/a_dlink.fatbin.c\\"" -DREGISTERLINKBINARYFILE="\\"tmp/a_dlink.reg.c\\"" -I. -D__NV_EXTRA_INITIALIZATION= -D__NV_EXTRA_FINALIZATION= -D__CUDA_INCLUDE_COMPILER_INTERNAL_HEADERS__  -Wno-psabi "-I/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"   -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include" -isystem "/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include"  -D__CUDACC_VER_MAJOR__=12 -D__CUDACC_VER_MINOR__=6 -D__CUDACC_VER_BUILD__=85 -D__CUDA_API_VER_MAJOR__=12 -D__CUDA_API_VER_MINOR__=6 -D__NVCC_DIAG_PRAGMA_SUPPORT__=1 -m64 "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/crt/link.stub" -o "tmp/a_dlink.o" ]
+        considering line: [g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+          extracted link line: [g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+        considering line: []
+        extracted link launcher name: [g++]
+        found link launcher absolute path: [/usr/lib64/ccache/g++]
+      
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        link line: [cuda-fake-ld g++ -D__CUDA_ARCH_LIST__=520 -D__NV_LEGACY_LAUNCH -m64 -Wl,--start-group "tmp/a_dlink.o" "tmp/CMakeCUDACompilerId.o" -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -Xlinker -rpath -Xlinker /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib"   "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs" "-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib"  -lcudadevrt  -lcudart_static  -lrt -lpthread  -ldl  -Wl,--end-group -o "a.out" ]
+          arg [cuda-fake-ld] ==> ignore
+          arg [g++] ==> ignore
+          arg [-D__CUDA_ARCH_LIST__=520] ==> ignore
+          arg [-D__NV_LEGACY_LAUNCH] ==> ignore
+          arg [-m64] ==> ignore
+          arg [-Wl,--start-group] ==> ignore
+          arg [tmp/a_dlink.o] ==> ignore
+          arg [tmp/CMakeCUDACompilerId.o] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [-Xlinker] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> ignore
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib]
+          arg [-lcudadevrt] ==> lib [cudadevrt]
+          arg [-lcudart_static] ==> lib [cudart_static]
+          arg [-lrt] ==> lib [rt]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ldl] ==> lib [dl]
+          arg [-Wl,--end-group] ==> ignore
+          arg [-o] ==> ignore
+          arg [a.out] ==> ignore
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib/stubs] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib]
+        implicit libs: [cudadevrt;cudart_static;rt;pthread;dl]
+        implicit objs: []
+        implicit dirs: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64;/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs;/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB"
+      binary: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "52"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g -O0"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB'
+        
+        Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6c855/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6c855.dir/build.make CMakeFiles/cmTC_6c855.dir/build
+        gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB'
+        Building CXX object CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o
+        /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++   -v -MD -MT CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -c /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp
+        Export NVCOMPILER=/software/opt/nvhpc/2025/Linux_x86_64/25.1
+        Export PGI=/software/opt/nvhpc/2025
+        Create file CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d
+        
+        /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/tools/nvcpfe -- --llalign -D__GNUC__=11 -D__GNUC_MINOR__=5 -D__GNUC_PATCHLEVEL__=0 -D__unix -D__unix__ -Dunix -Dlinux -D__linux -D__linux__ -D__ELF__ -D__NO_MATH_INLINES -D__LP64__ -D__x86_64 -D__x86_64__ -D__LONG_MAX__=9223372036854775807L '-D__SIZE_TYPE__=unsigned long int' '-D__PTRDIFF_TYPE__=long int' -D__amd64 -D__amd64__ -D__k8 -D__k8__ -D__MMX__ -D__SSE_MATH__ -D__MMX_WITH_SSE__ -D__SSE__ -D__SSE2__ -D__SSE2_MATH__ -D__SSE3__ -D__SSSE3__ -D__SSE4_1__ -D__SSE4_2__ -D__ABM__ -D__ADX__ -D__AES__ -D__AMX_BF16__ -D__AMX_INT8__ -D__AMX_TILE__ -D__AVX__ -D__AVX2__ -D__AVX512BF16__ -D__AVX512BITALG__ -D__AVX512BW__ -D__AVX512CD__ -D__AVX512DQ__ -D__AVX512F__ -D__AVX512FP16__ -D__AVX512IFMA__ -D__AVX512VBMI__ -D__AVX512VBMI2__ -D__AVX512VL__ -D__AVX512VNNI__ -D__AVX512VPOPCNTDQ__ -D__AVXVNNI__ -D__BMI__ -D__BMI2__ -D__CLDEMOTE__ -D__CLFLUSHOPT__ -D__CLWB__ -D__CX16__ -D__ENQCMD__ -D__F16C__ -D__FMA__ -D__FSGSBASE__ -D__FXSR__ -D__GFNI__ -D__LZCNT__ -D__MOVBE__ -D__MOVDIR64B__ -D__MOVDIRI__ -D__PCLMUL__ -D__PCONFIG__ -D__PKU__ -D__POPCNT__ -D__PRFCHW__ -D__PTWRITE__ -D__RDPID__ -D__RDRND__ -D__RDSEED__ -D__LAHF_SAHF__ -D__SERIALIZE__ -D__SGX__ -D__SHA__ -D__SHSTK__ -D__TSXLDTRK__ -D__UINTR__ -D__VAES__ -D__VPCLMULQDQ__ -D__WAITPKG__ -D__WBNOINVD__ -D__XSAVE__ -D__XSAVEC__ -D__XSAVEOPT__ -D__XSAVES__ -D__PGI -D__NVCOMPILER -D_GNU_SOURCE -D_PGCG_SOURCE -I- -I/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd -I/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include -I/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include -I/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include --sys_include /home/momedmoh/.local/include --sys_include /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include --sys_include /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include-stdexec --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11 --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/include --sys_include /usr/include -D__PGLLVM__ -D__NVCOMPILER_LLVM__ -D__extension__= --preinclude _cplus_preinclude.h --preinclude_macros _cplus_macros.h --gnu_version=110500 -D__pgnu_vsn=110500 --no_fixed_bp --dependencies_target_to_stdout CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o --dependencies_to_file CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d -q -o /tmp/nvc++fjg0jpa1rpgx6.il /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -- /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -opt 1 -x 119 0xa10000 -x 122 0x40 -x 123 0x1000 -x 127 4 -x 127 17 -x 19 0x400000 -x 28 0x40000 -x 120 0x10000000 -x 70 0x8000 -x 122 1 -x 125 0x20000 -quad -x 59 4 -tp sapphirerapids -x 120 0x1000 -astype 0 -x 121 1 -fn /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -il /tmp/nvc++fjg0jpa1rpgx6.il -x 117 0x200 -x 123 0x80000000 -x 123 4 -x 2 0x400 -x 209 0x10 -x 119 0x20 -def __pgnu_vsn=110500 -x 70 0x40000000 -x 183 4 -x 121 0x800 -x 6 0x20000 -x 249 170 -x 120 0x200000 -x 70 0x40000000 -x 8 0x40000000 -x 164 0x800000 -x 71 0x2000 -x 71 0x4000 -x 34 0x40000000 -x 120 0x1000000 -x 73 0x04 -x 231 0x800 -x 68 0x1 -x 39 4 -x 56 0x10 -x 26 0x10 -x 26 1 -x 56 0x4000 -x 197 0 -x 175 0 -x 203 0 -x 204 0 -x 227 0xFFFF -y 163 0xc0000000 -x 189 0x10 -y 189 0x4000000 -x 60 512 -gnuvsn 110500 -x 69 0x200 -mach 0 -nomach 0 -x 123 0x400 -cmdline '+nvc++ /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -v -MD -MT CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -c' -asm /tmp/nvc++vjg0j-sf53_Nz.ll
+        NVC++/x86-64 Linux 25.1-0: compilation successful
+        
+        /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/share/llvm/bin/llc /tmp/nvc++vjg0j-sf53_Nz.ll -march=x86-64 -mcpu=native -mattr=+mmx -mattr=+sse -mattr=+sse2 -mattr=+sse3 -mattr=+ssse3 -mattr=+sse4.1 -mattr=+sse4.2 -mattr=+avx -mattr=+avx2 -mattr=+avx512f -mattr=+avx512cd -mattr=+avx512vl -mattr=+avx512bw -mattr=+avx512dq -mattr=+avx512ifma -mattr=+avx512vbmi -mattr=+avx512vbmi2 -mattr=+avx512bitalg -mattr=+avx512vpopcntdq -mattr=+avx512vnni -mattr=+f16c -mattr=+fma -mattr=+xsave -mattr=+xsaveopt -mattr=+xsavec -mattr=+xsaves -mattr=+popcnt -mattr=+sha -mattr=+aes -mattr=+pclmul -mattr=+clflushopt -mattr=+fsgsbase -mattr=+rdrnd -mattr=+bmi -mattr=+bmi2 -mattr=+lzcnt -mattr=+fxsr -mattr=+pku -mattr=+gfni -mattr=+vaes -mattr=+vpclmulqdq -mattr=+movdiri -mattr=+movdir64b -mattr=+adx -mattr=+amx-bf16 -mattr=+amx-int8 -mattr=+amx-tile -mattr=+avx512bf16 -mattr=+avx512fp16 -mattr=+avxvnni -mattr=+cldemote -mattr=+clwb -mattr=+cx16 -mattr=+enqcmd -mattr=+movbe -mattr=+pconfig -mattr=+prfchw -mattr=+ptwrite -mattr=+rdpid -mattr=+rdseed -mattr=+sahf -mattr=+serialize -mattr=+sgx -mattr=+shstk -mattr=+tsxldtrk -mattr=+uintr -mattr=+waitpkg -mattr=+wbnoinvd -O1 -x86-cmov-converter=0 -dwarf-directory=false -non-global-value-max-name-size=4294967295 --align-all-functions=6 -nvhpc-memzero -filetype=obj --frame-pointer=none -o CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o
+        Unlinking /tmp/nvc++fjg0jpa1rpgx6.il
+        Unlinking /tmp/nvc++Tjg0jhc92ha-f.s
+        Unlinking /tmp/nvc++vjg0j-sf53_Nz.ll
+        Unlinking /tmp/nvc++9jg0j3QpGlwhn.llvm
+        Linking CXX executable cmTC_6c855
+        /software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c855.dir/link.txt --verbose=1
+        Export NVCOMPILER=/software/opt/nvhpc/2025/Linux_x86_64/25.1
+        Export PGI=/software/opt/nvhpc/2025
+        
+        /usr/bin/ld /usr/lib64/crt1.o /usr/lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11//crtbegin.o --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -T /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib/nvhpc.ld -L/home/momedmoh/.local/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib -L/usr/lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/ CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -rpath /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib -rpath /usr/lib64 -o cmTC_6c855 -L/usr/lib64 -latomic -lnvhpcatm -lstdc++ -lnvomp -ldl --as-needed -lnvhpcatm -latomic --no-as-needed -lpthread -lnvcpumath -lnsnvc -lnvc -lgcc -lc -lgcc_s -lm /usr/lib/gcc/x86_64-redhat-linux/11//crtend.o /usr/lib64/crtn.o
+        /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++  -v CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_6c855
+        gmake[1]: Leaving directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=start
+        warn: unable to parse implicit include dirs!
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB']
+        ignore line: []
+        ignore line: [Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6c855/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_6c855.dir/build.make CMakeFiles/cmTC_6c855.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-36cKXB']
+        ignore line: [Building CXX object CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++   -v -MD -MT CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -c /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Export NVCOMPILER=/software/opt/nvhpc/2025/Linux_x86_64/25.1]
+        ignore line: [Export PGI=/software/opt/nvhpc/2025]
+        ignore line: [Create file CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d]
+        ignore line: []
+        ignore line: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/tools/nvcpfe -- --llalign -D__GNUC__=11 -D__GNUC_MINOR__=5 -D__GNUC_PATCHLEVEL__=0 -D__unix -D__unix__ -Dunix -Dlinux -D__linux -D__linux__ -D__ELF__ -D__NO_MATH_INLINES -D__LP64__ -D__x86_64 -D__x86_64__ -D__LONG_MAX__=9223372036854775807L '-D__SIZE_TYPE__=unsigned long int' '-D__PTRDIFF_TYPE__=long int' -D__amd64 -D__amd64__ -D__k8 -D__k8__ -D__MMX__ -D__SSE_MATH__ -D__MMX_WITH_SSE__ -D__SSE__ -D__SSE2__ -D__SSE2_MATH__ -D__SSE3__ -D__SSSE3__ -D__SSE4_1__ -D__SSE4_2__ -D__ABM__ -D__ADX__ -D__AES__ -D__AMX_BF16__ -D__AMX_INT8__ -D__AMX_TILE__ -D__AVX__ -D__AVX2__ -D__AVX512BF16__ -D__AVX512BITALG__ -D__AVX512BW__ -D__AVX512CD__ -D__AVX512DQ__ -D__AVX512F__ -D__AVX512FP16__ -D__AVX512IFMA__ -D__AVX512VBMI__ -D__AVX512VBMI2__ -D__AVX512VL__ -D__AVX512VNNI__ -D__AVX512VPOPCNTDQ__ -D__AVXVNNI__ -D__BMI__ -D__BMI2__ -D__CLDEMOTE__ -D__CLFLUSHOPT__ -D__CLWB__ -D__CX16__ -D__ENQCMD__ -D__F16C__ -D__FMA__ -D__FSGSBASE__ -D__FXSR__ -D__GFNI__ -D__LZCNT__ -D__MOVBE__ -D__MOVDIR64B__ -D__MOVDIRI__ -D__PCLMUL__ -D__PCONFIG__ -D__PKU__ -D__POPCNT__ -D__PRFCHW__ -D__PTWRITE__ -D__RDPID__ -D__RDRND__ -D__RDSEED__ -D__LAHF_SAHF__ -D__SERIALIZE__ -D__SGX__ -D__SHA__ -D__SHSTK__ -D__TSXLDTRK__ -D__UINTR__ -D__VAES__ -D__VPCLMULQDQ__ -D__WAITPKG__ -D__WBNOINVD__ -D__XSAVE__ -D__XSAVEC__ -D__XSAVEOPT__ -D__XSAVES__ -D__PGI -D__NVCOMPILER -D_GNU_SOURCE -D_PGCG_SOURCE -I- -I/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd -I/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include -I/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include -I/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include --sys_include /opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include --sys_include /home/momedmoh/.local/include --sys_include /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include --sys_include /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include-stdexec --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11 --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward --sys_include /usr/lib/gcc/x86_64-redhat-linux/11/include --sys_include /usr/include -D__PGLLVM__ -D__NVCOMPILER_LLVM__ -D__extension__= --preinclude _cplus_preinclude.h --preinclude_macros _cplus_macros.h --gnu_version=110500 -D__pgnu_vsn=110500 --no_fixed_bp --dependencies_target_to_stdout CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o --dependencies_to_file CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d -q -o /tmp/nvc++fjg0jpa1rpgx6.il /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -- /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -opt 1 -x 119 0xa10000 -x 122 0x40 -x 123 0x1000 -x 127 4 -x 127 17 -x 19 0x400000 -x 28 0x40000 -x 120 0x10000000 -x 70 0x8000 -x 122 1 -x 125 0x20000 -quad -x 59 4 -tp sapphirerapids -x 120 0x1000 -astype 0 -x 121 1 -fn /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -il /tmp/nvc++fjg0jpa1rpgx6.il -x 117 0x200 -x 123 0x80000000 -x 123 4 -x 2 0x400 -x 209 0x10 -x 119 0x20 -def __pgnu_vsn=110500 -x 70 0x40000000 -x 183 4 -x 121 0x800 -x 6 0x20000 -x 249 170 -x 120 0x200000 -x 70 0x40000000 -x 8 0x40000000 -x 164 0x800000 -x 71 0x2000 -x 71 0x4000 -x 34 0x40000000 -x 120 0x1000000 -x 73 0x04 -x 231 0x800 -x 68 0x1 -x 39 4 -x 56 0x10 -x 26 0x10 -x 26 1 -x 56 0x4000 -x 197 0 -x 175 0 -x 203 0 -x 204 0 -x 227 0xFFFF -y 163 0xc0000000 -x 189 0x10 -y 189 0x4000000 -x 60 512 -gnuvsn 110500 -x 69 0x200 -mach 0 -nomach 0 -x 123 0x400 -cmdline '+nvc++ /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -v -MD -MT CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -c' -asm /tmp/nvc++vjg0j-sf53_Nz.ll]
+        ignore line: [NVC++/x86-64 Linux 25.1-0: compilation successful]
+        ignore line: []
+        ignore line: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/share/llvm/bin/llc /tmp/nvc++vjg0j-sf53_Nz.ll -march=x86-64 -mcpu=native -mattr=+mmx -mattr=+sse -mattr=+sse2 -mattr=+sse3 -mattr=+ssse3 -mattr=+sse4.1 -mattr=+sse4.2 -mattr=+avx -mattr=+avx2 -mattr=+avx512f -mattr=+avx512cd -mattr=+avx512vl -mattr=+avx512bw -mattr=+avx512dq -mattr=+avx512ifma -mattr=+avx512vbmi -mattr=+avx512vbmi2 -mattr=+avx512bitalg -mattr=+avx512vpopcntdq -mattr=+avx512vnni -mattr=+f16c -mattr=+fma -mattr=+xsave -mattr=+xsaveopt -mattr=+xsavec -mattr=+xsaves -mattr=+popcnt -mattr=+sha -mattr=+aes -mattr=+pclmul -mattr=+clflushopt -mattr=+fsgsbase -mattr=+rdrnd -mattr=+bmi -mattr=+bmi2 -mattr=+lzcnt -mattr=+fxsr -mattr=+pku -mattr=+gfni -mattr=+vaes -mattr=+vpclmulqdq -mattr=+movdiri -mattr=+movdir64b -mattr=+adx -mattr=+amx-bf16 -mattr=+amx-int8 -mattr=+amx-tile -mattr=+avx512bf16 -mattr=+avx512fp16 -mattr=+avxvnni -mattr=+cldemote -mattr=+clwb -mattr=+cx16 -mattr=+enqcmd -mattr=+movbe -mattr=+pconfig -mattr=+prfchw -mattr=+ptwrite -mattr=+rdpid -mattr=+rdseed -mattr=+sahf -mattr=+serialize -mattr=+sgx -mattr=+shstk -mattr=+tsxldtrk -mattr=+uintr -mattr=+waitpkg -mattr=+wbnoinvd -O1 -x86-cmov-converter=0 -dwarf-directory=false -non-global-value-max-name-size=4294967295 --align-all-functions=6 -nvhpc-memzero -filetype=obj --frame-pointer=none -o CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [Unlinking /tmp/nvc++fjg0jpa1rpgx6.il]
+        ignore line: [Unlinking /tmp/nvc++Tjg0jhc92ha-f.s]
+        ignore line: [Unlinking /tmp/nvc++vjg0j-sf53_Nz.ll]
+        ignore line: [Unlinking /tmp/nvc++9jg0j3QpGlwhn.llvm]
+        ignore line: [Linking CXX executable cmTC_6c855]
+        ignore line: [/software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c855.dir/link.txt --verbose=1]
+        ignore line: [Export NVCOMPILER=/software/opt/nvhpc/2025/Linux_x86_64/25.1]
+        ignore line: [Export PGI=/software/opt/nvhpc/2025]
+        ignore line: []
+        link line: [/usr/bin/ld /usr/lib64/crt1.o /usr/lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11//crtbegin.o --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -T /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib/nvhpc.ld -L/home/momedmoh/.local/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib -L/usr/lib64 -L/usr/lib/gcc/x86_64-redhat-linux/11/ CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o -rpath /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib -rpath /usr/lib64 -o cmTC_6c855 -L/usr/lib64 -latomic -lnvhpcatm -lstdc++ -lnvomp -ldl --as-needed -lnvhpcatm -latomic --no-as-needed -lpthread -lnvcpumath -lnsnvc -lnvc -lgcc -lc -lgcc_s -lm /usr/lib/gcc/x86_64-redhat-linux/11//crtend.o /usr/lib64/crtn.o]
+          arg [/usr/bin/ld] ==> ignore
+          arg [/usr/lib64/crt1.o] ==> obj [/usr/lib64/crt1.o]
+          arg [/usr/lib64/crti.o] ==> obj [/usr/lib64/crti.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11//crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11//crtbegin.o]
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-T] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib/nvhpc.ld] ==> ignore
+          arg [-L/home/momedmoh/.local/lib] ==> dir [/home/momedmoh/.local/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib]
+          arg [-L/usr/lib64] ==> dir [/usr/lib64]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/]
+          arg [CMakeFiles/cmTC_6c855.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib] ==> ignore
+          arg [-rpath] ==> ignore
+          arg [/usr/lib64] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_6c855] ==> ignore
+          arg [-L/usr/lib64] ==> dir [/usr/lib64]
+          arg [-latomic] ==> lib [atomic]
+          arg [-lnvhpcatm] ==> lib [nvhpcatm]
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lnvomp] ==> lib [nvomp]
+          arg [-ldl] ==> lib [dl]
+          arg [--as-needed] ==> ignore
+          arg [-lnvhpcatm] ==> lib [nvhpcatm]
+          arg [-latomic] ==> lib [atomic]
+          arg [--no-as-needed] ==> ignore
+          arg [-lpthread] ==> lib [pthread]
+          arg [-lnvcpumath] ==> lib [nvcpumath]
+          arg [-lnsnvc] ==> lib [nsnvc]
+          arg [-lnvc] ==> lib [nvc]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lm] ==> lib [m]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11//crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11//crtend.o]
+          arg [/usr/lib64/crtn.o] ==> obj [/usr/lib64/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/11//crtbegin.o] ==> [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/11//crtend.o] ==> [/usr/lib/gcc/x86_64-redhat-linux/11/crtend.o]
+        collapse library dir [/home/momedmoh/.local/lib] ==> [/home/momedmoh/.local/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib]
+        collapse library dir [/usr/lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/] ==> [/usr/lib/gcc/x86_64-redhat-linux/11]
+        collapse library dir [/usr/lib64] ==> [/usr/lib64]
+        implicit libs: [atomic;nvhpcatm;stdc++;nvomp;dl;nvhpcatm;atomic;pthread;nvcpumath;nsnvc;nvc;gcc;c;gcc_s;m]
+        implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/11/crtend.o;/usr/lib64/crtn.o]
+        implicit dirs: [/home/momedmoh/.local/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/lib;/usr/lib64;/usr/lib/gcc/x86_64-redhat-linux/11]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld version 2.35.2-63.el9
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCUDACompiler.cmake:19 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CUDA compiler ABI info"
+    directories:
+      source: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32"
+      binary: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "52"
+      CMAKE_CUDA_FLAGS: ""
+      CMAKE_CUDA_FLAGS_DEBUG: "-g"
+      CMAKE_CUDA_RUNTIME_LIBRARY: "Static"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CUDA_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32'
+        
+        Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_daa03/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_daa03.dir/build.make CMakeFiles/cmTC_daa03.dir/build
+        gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32'
+        Building CUDA object CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o
+        /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc -forward-unknown-to-host-compiler   "--generate-code=arch=compute_52,code=[compute_52,sm_52]"   -Xcompiler=-v -MD -MT CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -MF CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o.d -x cu -c /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/gcc
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) 
+        COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -E -quiet -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include -D_GNU_SOURCE -D __CUDA_ARCH__=520 -D __CUDA_ARCH_LIST__=520 -D __NV_LEGACY_LAUNCH -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=12 -D __CUDACC_VER_MINOR__=6 -D __CUDACC_VER_BUILD__=85 -D __CUDA_API_VER_MAJOR__=12 -D __CUDA_API_VER_MINOR__=6 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include -include cuda_runtime.h /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.ii -m64 -mtune=generic -march=x86-64-v2 -dumpdir /tmp/ -dumpbase tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.cu -dumpbase-ext .cu
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"
+        ignoring duplicate directory "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"
+          as it is a non-system directory that duplicates a system directory
+        ignoring duplicate directory "/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd"
+          as it is a non-system directory that duplicates a system directory
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include
+         /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd
+         /home/momedmoh/.local/include
+         .
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward
+         /usr/lib/gcc/x86_64-redhat-linux/11/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.'
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/gcc
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) 
+        COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -E -quiet -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include -D_GNU_SOURCE -D __CUDA_ARCH_LIST__=520 -D __NV_LEGACY_LAUNCH -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=12 -D __CUDACC_VER_MINOR__=6 -D __CUDACC_VER_BUILD__=85 -D __CUDA_API_VER_MAJOR__=12 -D __CUDA_API_VER_MINOR__=6 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include -include cuda_runtime.h /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.ii -m64 -mtune=generic -march=x86-64-v2 -dumpdir /tmp/ -dumpbase tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.cu -dumpbase-ext .cu
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"
+        ignoring duplicate directory "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"
+          as it is a non-system directory that duplicates a system directory
+        ignoring duplicate directory "/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd"
+          as it is a non-system directory that duplicates a system directory
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include
+         /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd
+         /home/momedmoh/.local/include
+         .
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward
+         /usr/lib/gcc/x86_64-redhat-linux/11/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.'
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/gcc
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-Wno-psabi' '-m64' '-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-c' '-o' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_daa03.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include -D_GNU_SOURCE -D __CUDA_ARCH__=520 -D __CUDA_ARCH_LIST__=520 -D __NV_LEGACY_LAUNCH -D CUDA_DOUBLE_MATH_FUNCTIONS -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include /tmp/tmpxft_00274198_00000000-6_CMakeCUDACompilerABI.cudafe1.cpp -quiet -dumpdir CMakeFiles/cmTC_daa03.dir/ -dumpbase CMakeCUDACompilerABI.cu.cpp -dumpbase-ext .cpp -m64 -mtune=generic -march=x86-64-v2 -Wno-psabi -version -fdiagnostics-color=always -o /tmp/cc14tLcs.s
+        GNU C++17 (GCC) version 11.5.0 20240719 (Red Hat 11.5.0-5) (x86_64-redhat-linux)
+        	compiled by GNU C version 11.5.0 20240719 (Red Hat 11.5.0-5), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"
+        ignoring duplicate directory "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"
+          as it is a non-system directory that duplicates a system directory
+        ignoring duplicate directory "/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd"
+          as it is a non-system directory that duplicates a system directory
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"
+        ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include
+         /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include
+         /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd
+         /home/momedmoh/.local/include
+         .
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux
+         /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward
+         /usr/lib/gcc/x86_64-redhat-linux/11/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        GNU C++17 (GCC) version 11.5.0 20240719 (Red Hat 11.5.0-5) (x86_64-redhat-linux)
+        	compiled by GNU C version 11.5.0 20240719 (Red Hat 11.5.0-5), GMP version 6.2.0, MPFR version 4.1.0-p9, MPC version 1.2.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 49af7bf74f046551c1979dd2b82e1084
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-Wno-psabi' '-m64' '-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-c' '-o' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_daa03.dir/'
+         as -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include --64 -o CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o /tmp/cc14tLcs.s
+        GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-63.el9
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-Wno-psabi' '-m64' '-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-c' '-o' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.'
+        Linking CUDA executable cmTC_daa03
+        /software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_daa03.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/g++
+        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) 
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_daa03' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_daa03.'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6GUfc5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_daa03 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/momedmoh/.local/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. -v CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o
+        collect2 version 11.5.0 20240719 (Red Hat 11.5.0-5)
+        /usr/bin/ld -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6GUfc5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_daa03 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/momedmoh/.local/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. -v CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o
+        GNU ld version 2.35.2-63.el9
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_daa03' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_daa03.'
+        /usr/lib64/ccache/g++  -v -Wl,-v CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -o cmTC_daa03  -lcudadevrt -lcudart_static -lrt -lpthread -ldl  -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib"
+        gmake[1]: Leaving directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCUDACompiler.cmake:19 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CUDA implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include]
+          add: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include]
+          add: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include]
+          add: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include]
+          add: [/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd]
+          add: [/home/momedmoh/.local/include]
+          add: [.]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/11/include]
+          add: [/usr/local/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include]
+        collapse include dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include]
+        collapse include dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include]
+        collapse include dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include]
+        collapse include dir [/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd] ==> [/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd]
+        collapse include dir [/home/momedmoh/.local/include] ==> [/home/momedmoh/.local/include]
+        skipping relative include dir [.]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11] ==> [/usr/include/c++/11]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux] ==> [/usr/include/c++/11/x86_64-redhat-linux]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/11/include] ==> [/usr/lib/gcc/x86_64-redhat-linux/11/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include;/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include;/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd;/home/momedmoh/.local/include;/usr/include/c++/11;/usr/include/c++/11/x86_64-redhat-linux;/usr/include/c++/11/backward;/usr/lib/gcc/x86_64-redhat-linux/11/include;/usr/local/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCUDACompiler.cmake:19 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CUDA implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32']
+        ignore line: []
+        ignore line: [Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_daa03/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_daa03.dir/build.make CMakeFiles/cmTC_daa03.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-UOBd32']
+        ignore line: [Building CUDA object CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o]
+        ignore line: [/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc -forward-unknown-to-host-compiler   "--generate-code=arch=compute_52 code=[compute_52 sm_52]"   -Xcompiler=-v -MD -MT CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -MF CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o.d -x cu -c /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCUDACompilerABI.cu -o CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/gcc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -E -quiet -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include -D_GNU_SOURCE -D __CUDA_ARCH__=520 -D __CUDA_ARCH_LIST__=520 -D __NV_LEGACY_LAUNCH -D CUDA_DOUBLE_MATH_FUNCTIONS -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=12 -D __CUDACC_VER_MINOR__=6 -D __CUDACC_VER_BUILD__=85 -D __CUDA_API_VER_MAJOR__=12 -D __CUDA_API_VER_MINOR__=6 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include -include cuda_runtime.h /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.ii -m64 -mtune=generic -march=x86-64-v2 -dumpdir /tmp/ -dumpbase tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.cu -dumpbase-ext .cu]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"]
+        ignore line: [ignoring duplicate directory "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"]
+        ignore line: [  as it is a non-system directory that duplicates a system directory]
+        ignore line: [ignoring duplicate directory "/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd"]
+        ignore line: [  as it is a non-system directory that duplicates a system directory]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include]
+        ignore line: [ /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd]
+        ignore line: [ /home/momedmoh/.local/include]
+        ignore line: [ .]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/tmpxft_00274198_00000000-7_CMakeCUDACompilerABI.cpp1.']
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/gcc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -E -quiet -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include -D_GNU_SOURCE -D __CUDA_ARCH_LIST__=520 -D __NV_LEGACY_LAUNCH -D __CUDACC__ -D __NVCC__ -D __CUDACC_VER_MAJOR__=12 -D __CUDACC_VER_MINOR__=6 -D __CUDACC_VER_BUILD__=85 -D __CUDA_API_VER_MAJOR__=12 -D __CUDA_API_VER_MINOR__=6 -D __NVCC_DIAG_PRAGMA_SUPPORT__=1 -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include -include cuda_runtime.h /software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCUDACompilerABI.cu -o /tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.ii -m64 -mtune=generic -march=x86-64-v2 -dumpdir /tmp/ -dumpbase tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.cu -dumpbase-ext .cu]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"]
+        ignore line: [ignoring duplicate directory "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"]
+        ignore line: [  as it is a non-system directory that duplicates a system directory]
+        ignore line: [ignoring duplicate directory "/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd"]
+        ignore line: [  as it is a non-system directory that duplicates a system directory]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include]
+        ignore line: [ /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd]
+        ignore line: [ /home/momedmoh/.local/include]
+        ignore line: [ .]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-E' '-D' '__CUDACC__' '-D' '__NVCC__' '-v' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-D' '__CUDACC_VER_MAJOR__=12' '-D' '__CUDACC_VER_MINOR__=6' '-D' '__CUDACC_VER_BUILD__=85' '-D' '__CUDA_API_VER_MAJOR__=12' '-D' '__CUDA_API_VER_MINOR__=6' '-D' '__NVCC_DIAG_PRAGMA_SUPPORT__=1' '-include' 'cuda_runtime.h' '-m64' '-o' '/tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.ii' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' '/tmp/tmpxft_00274198_00000000-5_CMakeCUDACompilerABI.cpp4.']
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/gcc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-Wno-psabi' '-m64' '-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-c' '-o' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_daa03.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/cc1plus -quiet -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include -D_GNU_SOURCE -D __CUDA_ARCH__=520 -D __CUDA_ARCH_LIST__=520 -D __NV_LEGACY_LAUNCH -D CUDA_DOUBLE_MATH_FUNCTIONS -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include -isystem /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include /tmp/tmpxft_00274198_00000000-6_CMakeCUDACompilerABI.cudafe1.cpp -quiet -dumpdir CMakeFiles/cmTC_daa03.dir/ -dumpbase CMakeCUDACompilerABI.cu.cpp -dumpbase-ext .cpp -m64 -mtune=generic -march=x86-64-v2 -Wno-psabi -version -fdiagnostics-color=always -o /tmp/cc14tLcs.s]
+        ignore line: [GNU C++17 (GCC) version 11.5.0 20240719 (Red Hat 11.5.0-5) (x86_64-redhat-linux)]
+        ignore line: [	compiled by GNU C version 11.5.0 20240719 (Red Hat 11.5.0-5)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../x86_64-redhat-linux/include"]
+        ignore line: [ignoring duplicate directory "/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include"]
+        ignore line: [  as it is a non-system directory that duplicates a system directory]
+        ignore line: [ignoring duplicate directory "/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd"]
+        ignore line: [  as it is a non-system directory that duplicates a system directory]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nvshmem/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/nccl/include"]
+        ignore line: [ignoring nonexistent directory "/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include]
+        ignore line: [ /software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include]
+        ignore line: [ /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/extras/qd/include/qd]
+        ignore line: [ /home/momedmoh/.local/include]
+        ignore line: [ .]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/11/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++17 (GCC) version 11.5.0 20240719 (Red Hat 11.5.0-5) (x86_64-redhat-linux)]
+        ignore line: [	compiled by GNU C version 11.5.0 20240719 (Red Hat 11.5.0-5)  GMP version 6.2.0  MPFR version 4.1.0-p9  MPC version 1.2.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 49af7bf74f046551c1979dd2b82e1084]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-Wno-psabi' '-m64' '-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-c' '-o' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_daa03.dir/']
+        ignore line: [ as -v -I /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include --64 -o CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o /tmp/cc14tLcs.s]
+        ignore line: [GNU assembler version 2.35.2 (x86_64-redhat-linux) using BFD version version 2.35.2-63.el9]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-Wno-psabi' '-m64' '-D' '__CUDA_ARCH__=520' '-D' '__CUDA_ARCH_LIST__=520' '-D' '__NV_LEGACY_LAUNCH' '-D' 'CUDA_DOUBLE_MATH_FUNCTIONS' '-I' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/bin/../targets/x86_64-linux/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/include' '-isystem' '/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/include' '-c' '-o' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.']
+        ignore line: [Linking CUDA executable cmTC_daa03]
+        ignore line: [/software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_daa03.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/g++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_daa03' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-dumpdir' 'cmTC_daa03.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6GUfc5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_daa03 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/momedmoh/.local/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. -v CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cc6GUfc5.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--no-add-needed] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_daa03] ==> ignore
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs]
+          arg [-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib] ==> dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/home/momedmoh/.local/lib] ==> dir [/home/momedmoh/.local/lib]
+          arg [-L.] ==> ignore
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o] ==> ignore
+          arg [-lcudadevrt] ==> lib [cudadevrt]
+          arg [-lcudart_static] ==> lib [cudart_static]
+          arg [-lrt] ==> lib [rt]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ldl] ==> lib [dl]
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11/crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/crtend.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
+        ignore line: [collect2 version 11.5.0 20240719 (Red Hat 11.5.0-5)]
+        ignore line: [/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6GUfc5.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_daa03 /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64 -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs -L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/momedmoh/.local/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. -v CMakeFiles/cmTC_daa03.dir/CMakeCUDACompilerABI.cu.o -lcudadevrt -lcudart_static -lrt -lpthread -ldl -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o]
+        linker tool for 'CUDA': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o] ==> [/usr/lib64/crt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs]
+        collapse library dir [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib] ==> [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11] ==> [/usr/lib/gcc/x86_64-redhat-linux/11]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/home/momedmoh/.local/lib] ==> [/home/momedmoh/.local/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> [/usr/lib]
+        implicit libs: [cudadevrt;cudart_static;rt;pthread;dl;stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/11/crtend.o;/usr/lib64/crtn.o]
+        implicit dirs: [/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64;/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib;/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs;/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib;/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/home/momedmoh/.local/lib;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/CMakeTestCUDACompiler.cmake:19 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CUDA compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld version 2.35.2-63.el9
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/FindOpenMP.cmake:252 (try_compile)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/FindOpenMP.cmake:522 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:28 (find_package)"
+    description: "Detecting CUDA OpenMP compiler info"
+    directories:
+      source: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q"
+      binary: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "52"
+      CMAKE_CUDA_FLAGS: ""
+      CMAKE_CUDA_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CUDA_fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q'
+        
+        Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_28a4a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_28a4a.dir/build.make CMakeFiles/cmTC_28a4a.dir/build
+        gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q'
+        Building CUDA object CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o
+        /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc -forward-unknown-to-host-compiler   -fopenmp "--generate-code=arch=compute_52,code=[compute_52,sm_52]" -MD -MT CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o -MF CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o.d -x cu -c /home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q/OpenMPTryFlag.cu -o CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o
+        Linking CUDA executable cmTC_28a4a
+        /software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28a4a.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/g++
+        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) 
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/
+        Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec
+        COLLECT_GCC_OPTIONS='-v' '-fopenmp' '-o' 'cmTC_28a4a' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_28a4a.'
+         /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSaJp7x.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_28a4a /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o @/tmp/ccMUlGQn -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/momedmoh/.local/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. @/tmp/ccq65U80 -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o
+        COLLECT_GCC_OPTIONS='-v' '-fopenmp' '-o' 'cmTC_28a4a' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_28a4a.'
+        /usr/lib64/ccache/g++ -v -fopenmp @CMakeFiles/cmTC_28a4a.dir/objects1.rsp -o cmTC_28a4a @CMakeFiles/cmTC_28a4a.dir/linkLibs.rsp -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib"
+        gmake[1]: Leaving directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/FindOpenMP.cmake:296 (message)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/FindOpenMP.cmake:522 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:28 (find_package)"
+    message: |
+      Parsed CUDA OpenMP implicit link information from above output:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q']
+        ignore line: []
+        ignore line: [Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_28a4a/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_28a4a.dir/build.make CMakeFiles/cmTC_28a4a.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q']
+        ignore line: [Building CUDA object CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o]
+        ignore line: [/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc -forward-unknown-to-host-compiler   -fopenmp "--generate-code=arch=compute_52 code=[compute_52 sm_52]" -MD -MT CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o -MF CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o.d -x cu -c /home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-2oAt4Q/OpenMPTryFlag.cu -o CMakeFiles/cmTC_28a4a.dir/OpenMPTryFlag.cu.o]
+        ignore line: [Linking CUDA executable cmTC_28a4a]
+        ignore line: [/software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28a4a.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/g++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-host-pie --enable-host-bind-now --enable-languages=c c++ fortran lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-plugin --enable-initfini-array --without-isl --enable-multilib --with-linker-hash-style=gnu --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_64=x86-64-v2 --with-arch_32=x86-64 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 11.5.0 20240719 (Red Hat 11.5.0-5) (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/11/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/11/:/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/momedmoh/.local/lib/:./:/usr/lib/gcc/x86_64-redhat-linux/11/../../../:/lib/:/usr/lib/]
+        ignore line: [Reading specs from /usr/lib/gcc/x86_64-redhat-linux/11/libgomp.spec]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-fopenmp' '-o' 'cmTC_28a4a' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs' '-L/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64-v2' '-pthread' '-dumpdir' 'cmTC_28a4a.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/11/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSaJp7x.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_28a4a /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadbegin.o @/tmp/ccMUlGQn -L/usr/lib/gcc/x86_64-redhat-linux/11 -L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/momedmoh/.local/lib -L. -L/usr/lib/gcc/x86_64-redhat-linux/11/../../.. @/tmp/ccq65U80 -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/11/crtend.o /usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o /usr/lib/gcc/x86_64-redhat-linux/11/crtoffloadend.o]
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/11/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/11/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccSaJp7x.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--no-add-needed] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_28a4a] ==> ignore
+          arg [@/tmp/ccMUlGQn] ==> ignore
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/home/momedmoh/.local/lib] ==> dir [/home/momedmoh/.local/lib]
+          arg [-L.] ==> ignore
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..]
+          arg [@/tmp/ccq65U80] ==> ignore
+          arg [-lgomp] ==> lib [gomp]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11] ==> [/usr/lib/gcc/x86_64-redhat-linux/11]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/home/momedmoh/.local/lib] ==> [/home/momedmoh/.local/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/11/../../..] ==> [/usr/lib]
+        implicit libs: [gomp;gcc_s;gcc;pthread;c;gcc_s;gcc]
+        implicit objs: []
+        implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/11;/usr/lib64;/lib64;/home/momedmoh/.local/lib;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/FindOpenMP.cmake:456 (try_compile)"
+      - "/software/cmake/3.31.6/share/cmake-3.31/Modules/FindOpenMP.cmake:596 (_OPENMP_GET_SPEC_DATE)"
+      - "CMakeLists.txt:28 (find_package)"
+    description: "Detecting CUDA OpenMP version"
+    directories:
+      source: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-ytI1ix"
+      binary: "/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-ytI1ix"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "52"
+      CMAKE_CUDA_FLAGS: ""
+      CMAKE_CUDA_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "OpenMP_SPECTEST_CUDA_"
+      cached: true
+      stdout: |
+        Change Dir: '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-ytI1ix'
+        
+        Run Build Command(s): /software/cmake/3.31.6/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3acb2/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3acb2.dir/build.make CMakeFiles/cmTC_3acb2.dir/build
+        gmake[1]: Entering directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-ytI1ix'
+        Building CUDA object CMakeFiles/cmTC_3acb2.dir/OpenMPCheckVersion.cu.o
+        /opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc -forward-unknown-to-host-compiler   -fopenmp "--generate-code=arch=compute_52,code=[compute_52,sm_52]" -MD -MT CMakeFiles/cmTC_3acb2.dir/OpenMPCheckVersion.cu.o -MF CMakeFiles/cmTC_3acb2.dir/OpenMPCheckVersion.cu.o.d -x cu -c /home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-ytI1ix/OpenMPCheckVersion.cu -o CMakeFiles/cmTC_3acb2.dir/OpenMPCheckVersion.cu.o
+        Linking CUDA executable cmTC_3acb2
+        /software/cmake/3.31.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3acb2.dir/link.txt --verbose=1
+        /usr/lib64/ccache/g++ @CMakeFiles/cmTC_3acb2.dir/objects1.rsp -o cmTC_3acb2 @CMakeFiles/cmTC_3acb2.dir/linkLibs.rsp -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/math_libs/12.6/lib64" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nccl/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/comm_libs/12.6/nvshmem/lib" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib/stubs" -L"/software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/targets/x86_64-linux/lib"
+        gmake[1]: Leaving directory '/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles/CMakeScratch/TryCompile-ytI1ix'
+        
+      exitCode: 0
+...

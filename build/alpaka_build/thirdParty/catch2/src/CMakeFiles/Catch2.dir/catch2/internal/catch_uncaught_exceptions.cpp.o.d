@@ -66,7 +66,8 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2.dir/catch2/internal/catch_u
   /usr/include/bits/types/struct_timespec.h /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/thread-shared-types.h \
   /usr/include/bits/pthreadtypes-arch.h /usr/include/bits/wordsize.h \
-  /usr/include/bits/struct_mutex.h /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
   /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/alloca.h \
   /usr/include/alloca.h /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h \
   /usr/include/bits/stdlib-float.h \
