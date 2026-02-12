@@ -1,10 +1,10 @@
 #include "Unpacker.h"
-#include <iostream>
+#include <algorithm>
+#include <chrono>
 #include <cstring>
+#include <iostream>
+#include <type_traits>
 #include <vector>
-#include <cstdint>
-
-using namespace std;
 
 ALPAKA_FN_HOST_ACC inline int createMask(int nBits) { return (1 << nBits) - 1; }
 
@@ -51,7 +51,8 @@ ALPAKA_FN_HOST_ACC inline void readPayload(
       const uint16_t wordLeft = static_cast<uint16_t>(lines[iLine] & nMask);
       bitsToRead = clusterBits - nAvailableBits;
       const int nextMask = createMask(bitsToRead);
-      const uint16_t wordRight = static_cast<uint16_t>((lines[iLine + 1] >> (N_BITS_PER_WORD - bitsToRead)) & nextMask);
+      const uint16_t wordRight =
+          static_cast<uint16_t>((lines[iLine + 1] >> (N_BITS_PER_WORD - bitsToRead)) & nextMask);
       clusterWords[icluster] = (static_cast<uint32_t>(wordLeft) << bitsToRead) | wordRight;
       nAvailableBits = N_BITS_PER_WORD - bitsToRead;
       ++iLine;
@@ -78,7 +79,8 @@ struct UnpackKernel {
       uint8_t* outIsSeed,
       uint8_t* outMip,
       uint8_t* outModType,
-      uint32_t* globalCounter
+      uint32_t* globalCounter,
+      uint32_t outCapacity
   ) const {
 
     const uint32_t gtid = alpaka::getIdx<alpaka::Grid, alpaka::Threads>(acc)[0u];
@@ -118,7 +120,6 @@ struct UnpackKernel {
         const bool is2SModule = (moduleType == 1);
 
         const size_t offsetTableStart = (HEADER_N_LINES + MODULES_PER_SLINK) * N_BYTES_PER_WORD;
-
         const int wordIdx = static_cast<int>(iChannel / 2);
 
         const uint16_t channelOffset16 = (iChannel % 2 == 0)
@@ -167,6 +168,7 @@ struct UnpackKernel {
 
         const uint32_t writeCount = is2SModule ? useStrip : (useStrip + usePixel);
         if (writeCount == 0) continue;
+
         const uint32_t base = alpaka::atomicAdd(acc, globalCounter, writeCount);
 
         const uint32_t innerDet = innerDetIdForFlatIdx[flatIdx];
@@ -175,6 +177,9 @@ struct UnpackKernel {
 
         if (is2SModule) {
           for (unsigned int ic = 0; ic < useStrip; ++ic) {
+            const uint32_t outIdx = base + ic;
+            if (outIdx >= outCapacity) continue; // CMSSW-like guard
+
             const uint32_t word = stripClusterWords[ic];
             const uint32_t chip = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS)) & CHIP_ID_MAX_VALUE;
             const uint32_t addr = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_ONLY_BITS_2S)) & SCLUSTER_ADDRESS_MASK;
@@ -182,7 +187,6 @@ struct UnpackKernel {
             uint32_t       w    = word & WIDTH_MAX_VALUE;
             if (w == 0) w = 8;
 
-            const uint32_t outIdx = base + ic;
             outDet[outIdx]     = seed ? innerDet : outerDet;
             outX[outIdx]       = static_cast<uint16_t>(STRIPS_PER_CBC * chip + addr);
             outY[outIdx]       = static_cast<uint16_t>(parity);
@@ -194,6 +198,9 @@ struct UnpackKernel {
           }
         } else {
           for (unsigned int ic = 0; ic < useStrip; ++ic) {
+            const uint32_t outIdx = base + ic;
+            if (outIdx >= outCapacity) continue;
+
             const uint32_t word = stripClusterWords[ic];
             const uint32_t chip = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS)) & CHIP_ID_MAX_VALUE;
             const uint32_t addr = (word >> (SS_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_BITS_PS)) & SCLUSTER_ADDRESS_PS_MAX_VALUE;
@@ -201,7 +208,6 @@ struct UnpackKernel {
             const uint32_t mip  = word & MIP_BITS_MASK;
             if (w == 0) w = 8;
 
-            const uint32_t outIdx = base + ic;
             outDet[outIdx]     = outerDet;
             outX[outIdx]       = static_cast<uint16_t>(STRIPS_PER_SSA * chip + addr);
             outY[outIdx]       = static_cast<uint16_t>(parity);
@@ -213,6 +219,9 @@ struct UnpackKernel {
           }
 
           for (unsigned int ic = 0; ic < usePixel; ++ic) {
+            const uint32_t outIdx = base + useStrip + ic;
+            if (outIdx >= outCapacity) continue;
+
             const uint32_t word = pixelClusterWords[ic];
             const uint32_t chip = (word >> (PX_CLUSTER_BITS - CHIP_ID_BITS)) & CHIP_ID_MAX_VALUE;
             const uint32_t addr = (word >> (PX_CLUSTER_BITS - CHIP_ID_BITS - SCLUSTER_ADDRESS_BITS_PS)) & SCLUSTER_ADDRESS_PS_MAX_VALUE;
@@ -220,7 +229,6 @@ struct UnpackKernel {
             const uint32_t z    = word & PS_Z_BITS_MASK;
             if (w == 0) w = 8;
 
-            const uint32_t outIdx = base + useStrip + ic;
             outDet[outIdx]     = innerDet;
             outX[outIdx]       = static_cast<uint16_t>(STRIPS_PER_SSA * chip + addr);
             outY[outIdx]       = static_cast<uint16_t>(parity == 0 ? z : (z + 16));
@@ -236,11 +244,33 @@ struct UnpackKernel {
   }
 };
 
-namespace {
-template <typename T> using Buf = decltype(alpaka::allocBuf<T, Idx>(std::declval<alpaka::DevCpu>(), alpaka::Vec<alpaka::DimInt<1>, Idx>::all(0)));
-}
-
 namespace ot {
+
+static inline alpaka::Vec<Dim, Idx> v1(Idx n) { return alpaka::Vec<Dim, Idx>::all(n); }
+
+UnpackerDriver::UnpackerDriver()
+  : dev_(alpaka::getDevByIdx(alpaka::Platform<Acc>{}, 0u))
+  , queue_(dev_)
+  , rawCap_(10'000'000)   // 10MB
+  , slinkCap_(1'000)
+  , mapCap_(31'104)
+  , outCap_(1'000'000)
+  , rawDev_(alpaka::allocBuf<unsigned char, Idx>(dev_, v1(rawCap_)))
+  , sizesDev_(alpaka::allocBuf<std::size_t, Idx>(dev_, v1(slinkCap_)))
+  , offsDev_(alpaka::allocBuf<std::size_t, Idx>(dev_, v1(slinkCap_)))
+  , modDev_(alpaka::allocBuf<int, Idx>(dev_, v1(mapCap_)))
+  , innerDev_(alpaka::allocBuf<uint32_t, Idx>(dev_, v1(mapCap_)))
+  , outerDev_(alpaka::allocBuf<uint32_t, Idx>(dev_, v1(mapCap_)))
+  , outDet_(alpaka::allocBuf<uint32_t, Idx>(dev_, v1(outCap_)))
+  , outX_(alpaka::allocBuf<uint16_t, Idx>(dev_, v1(outCap_)))
+  , outY_(alpaka::allocBuf<uint16_t, Idx>(dev_, v1(outCap_)))
+  , outZ_(alpaka::allocBuf<uint8_t, Idx>(dev_, v1(outCap_)))
+  , outW_(alpaka::allocBuf<uint8_t, Idx>(dev_, v1(outCap_)))
+  , outSeed_(alpaka::allocBuf<uint8_t, Idx>(dev_, v1(outCap_)))
+  , outMip_(alpaka::allocBuf<uint8_t, Idx>(dev_, v1(outCap_)))
+  , outMType_(alpaka::allocBuf<uint8_t, Idx>(dev_, v1(outCap_)))
+  , counter_(alpaka::allocBuf<uint32_t, Idx>(dev_, v1(1)))
+{}
 
 ClusterPropSoA UnpackerDriver::run(
     std::vector<unsigned char> const& linearRaw,
@@ -250,134 +280,140 @@ ClusterPropSoA UnpackerDriver::run(
     std::vector<uint32_t>      const& innerDetId,
     std::vector<uint32_t>      const& outerDetId
 ) const {
-  auto dev = alpaka::getDevByIdx(alpaka::Platform<Acc>{}, 0u);
-  Queue q{dev};
 
-  const uint32_t NSlinks = (MAX_DTC_ID - MIN_DTC_ID + 1) * SLINKS_PER_DTC;
-  const std::size_t maxClusters =
-      (N_CLUSTER_MASK + 1) * CICs_PER_SLINK * (MAX_DTC_ID - MIN_DTC_ID + 1) * SLINKS_PER_DTC;
+  // grow buffers if needed (kept minimal; avoids memcpy out-of-bounds)
+  if (linearRaw.size() > rawCap_) {
+    rawCap_ = linearRaw.size();
+    rawDev_ = alpaka::allocBuf<unsigned char, Idx>(dev_, v1(rawCap_));
+  }
+  if (sizes.size() > slinkCap_) {
+    slinkCap_ = sizes.size();
+    sizesDev_ = alpaka::allocBuf<std::size_t, Idx>(dev_, v1(slinkCap_));
+    offsDev_  = alpaka::allocBuf<std::size_t, Idx>(dev_, v1(slinkCap_));
+  }
+  if (detIdxModuleType.size() > mapCap_) {
+    mapCap_  = detIdxModuleType.size();
+    modDev_   = alpaka::allocBuf<int, Idx>(dev_, v1(mapCap_));
+    innerDev_ = alpaka::allocBuf<uint32_t, Idx>(dev_, v1(mapCap_));
+    outerDev_ = alpaka::allocBuf<uint32_t, Idx>(dev_, v1(mapCap_));
+  }
 
-  auto rawDev    = alpaka::allocBuf<unsigned char, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(linearRaw.size()));
-  auto sizesDev  = alpaka::allocBuf<std::size_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(sizes.size()));
-  auto offsDev   = alpaka::allocBuf<std::size_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(offsets.size()));
-  auto modDev    = alpaka::allocBuf<int, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(detIdxModuleType.size()));
-  auto innerDev  = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(innerDetId.size()));
-  auto outerDev  = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(outerDetId.size()));
-  auto outDet    = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outX      = alpaka::allocBuf<uint16_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outY      = alpaka::allocBuf<uint16_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outZ      = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outW      = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outSeed   = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outMip    = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto outMType  = alpaka::allocBuf<uint8_t,  Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(maxClusters));
-  auto counter   = alpaka::allocBuf<uint32_t, Idx>(dev, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(1));
-  
+  // Copy data to device
   {
     auto host = alpaka::getDevByIdx(alpaka::PlatformCpu{}, 0);
-    auto mkview = [&](auto const& vec, auto& devbuf){
-      using Elem = std::remove_cv_t<std::remove_reference_t<decltype(vec[0])>>;
-      auto extent = alpaka::getExtents(devbuf)[0];
-      auto hostbuf = alpaka::allocBuf<Elem, Idx>(host, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(extent));
-      auto* ptr = alpaka::getPtrNative(hostbuf);
-      std::memcpy(static_cast<void*>(ptr), vec.data(), vec.size() * sizeof(Elem));
-      alpaka::memcpy(q, devbuf, hostbuf);
-      alpaka::wait(q);
+
+    auto copyVec = [&](auto const& vec, auto& devbuf) {
+      using VecT = std::decay_t<decltype(vec)>;
+      using Elem = typename VecT::value_type;
+      if (vec.empty()) return;
+      auto hostbuf = alpaka::allocBuf<Elem, Idx>(host, v1(vec.size()));
+      std::memcpy(alpaka::getPtrNative(hostbuf), vec.data(), vec.size() * sizeof(Elem));
+      alpaka::memcpy(queue_, devbuf, hostbuf, vec.size());
     };
 
-    mkview(linearRaw, rawDev);
-    mkview(sizes,    sizesDev);
-    mkview(offsets,  offsDev);
-    mkview(detIdxModuleType, modDev);
-    mkview(innerDetId, innerDev);
-    mkview(outerDetId, outerDev);
+    copyVec(linearRaw, rawDev_);
+    copyVec(sizes, sizesDev_);
+    copyVec(offsets, offsDev_);
+    copyVec(detIdxModuleType, modDev_);
+    copyVec(innerDetId, innerDev_);
+    copyVec(outerDetId, outerDev_);
 
-    auto hostCnt = alpaka::allocBuf<uint32_t, Idx>(host, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(1));
+    auto hostCnt = alpaka::allocBuf<uint32_t, Idx>(host, v1(1));
     *alpaka::getPtrNative(hostCnt) = 0u;
-    alpaka::memcpy(q, counter, hostCnt);
-    alpaka::wait(q);
+    alpaka::memcpy(queue_, counter_, hostCnt);
+    alpaka::wait(queue_);
   }
-  
-  #ifdef ALPAKA_CUDA_ENABLED
-  const uint32_t threadsPerBlock = 1024;
+
+  const uint32_t NSlinks = (MAX_DTC_ID - MIN_DTC_ID + 1) * SLINKS_PER_DTC;
+
+#if defined(ALPAKA_ACC_GPU_CUDA_ENABLED)
+  const uint32_t threadsPerBlock = 128;
   const uint32_t blocks = (NSlinks + threadsPerBlock - 1) / threadsPerBlock;
-  #else
+#else
   const uint32_t threadsPerBlock = 1;
   const uint32_t blocks = 1;
-  #endif
-  
-  auto workDiv = alpaka::WorkDivMembers<alpaka::DimInt<1>, Idx>(
-      alpaka::Vec<alpaka::DimInt<1>, Idx>::all(blocks),
-      alpaka::Vec<alpaka::DimInt<1>, Idx>::all(threadsPerBlock),
-      alpaka::Vec<alpaka::DimInt<1>, Idx>::all(1));
+#endif
+
+  auto workDiv = alpaka::WorkDivMembers<Dim, Idx>(v1(blocks), v1(threadsPerBlock), v1(1));
+
+  alpaka::wait(queue_);
+
+  // kernel-only timing
+  auto t0 = std::chrono::steady_clock::now();
 
   UnpackKernel kernel;
   alpaka::exec<Acc>(
-    q, workDiv, kernel,
-    alpaka::getPtrNative(rawDev),
-    alpaka::getPtrNative(sizesDev),
-    alpaka::getPtrNative(offsDev),
-    alpaka::getPtrNative(modDev),
-    alpaka::getPtrNative(innerDev),
-    alpaka::getPtrNative(outerDev),
-    alpaka::getPtrNative(outDet),
-    alpaka::getPtrNative(outX),
-    alpaka::getPtrNative(outY),
-    alpaka::getPtrNative(outZ),
-    alpaka::getPtrNative(outW),
-    alpaka::getPtrNative(outSeed),
-    alpaka::getPtrNative(outMip),
-    alpaka::getPtrNative(outMType),
-    alpaka::getPtrNative(counter)
+      queue_, workDiv, kernel,
+      alpaka::getPtrNative(rawDev_),
+      alpaka::getPtrNative(sizesDev_),
+      alpaka::getPtrNative(offsDev_),
+      alpaka::getPtrNative(modDev_),
+      alpaka::getPtrNative(innerDev_),
+      alpaka::getPtrNative(outerDev_),
+      alpaka::getPtrNative(outDet_),
+      alpaka::getPtrNative(outX_),
+      alpaka::getPtrNative(outY_),
+      alpaka::getPtrNative(outZ_),
+      alpaka::getPtrNative(outW_),
+      alpaka::getPtrNative(outSeed_),
+      alpaka::getPtrNative(outMip_),
+      alpaka::getPtrNative(outMType_),
+      alpaka::getPtrNative(counter_),
+      static_cast<uint32_t>(outCap_)
   );
 
-  alpaka::wait(q);
+  alpaka::wait(queue_);
 
+  auto t1 = std::chrono::steady_clock::now();
+  std::cout << "[Standalone] KERNEL ONLY time: "
+            << std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count()
+            << " us\n";
+
+  // read back counter
   uint32_t nOut = 0;
   {
     auto host = alpaka::getDevByIdx(alpaka::PlatformCpu{}, 0);
-    auto hostCnt = alpaka::allocBuf<uint32_t, Idx>(host, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(1));
-    alpaka::memcpy(q, hostCnt, counter);
-    alpaka::wait(q);
+    auto hostCnt = alpaka::allocBuf<uint32_t, Idx>(host, v1(1));
+    alpaka::memcpy(queue_, hostCnt, counter_);
+    alpaka::wait(queue_);
     nOut = *alpaka::getPtrNative(hostCnt);
   }
+  nOut = std::min<uint32_t>(nOut, static_cast<uint32_t>(outCap_));
 
   ClusterPropSoA out;
   out.reserve(nOut);
 
-  auto copyBack = [&](auto const& devbuf, auto* tmp){
+  auto copyBack = [&](auto const& devbuf, auto* tmp) {
+    if (nOut == 0) return;
     auto host = alpaka::getDevByIdx(alpaka::PlatformCpu{}, 0);
-    auto hostBuf = alpaka::allocBuf<std::remove_reference_t<decltype(*tmp)>, Idx>(host, alpaka::Vec<alpaka::DimInt<1>, Idx>::all(nOut));
-    alpaka::memcpy(q, hostBuf, devbuf, nOut);
-    alpaka::wait(q);
-    std::memcpy(tmp, alpaka::getPtrNative(hostBuf), nOut * sizeof(*tmp));
+    using Elem = std::remove_pointer_t<decltype(tmp)>;
+    auto hostBuf = alpaka::allocBuf<Elem, Idx>(host, v1(nOut));
+    alpaka::memcpy(queue_, hostBuf, devbuf, nOut);
+    alpaka::wait(queue_);
+    std::memcpy(tmp, alpaka::getPtrNative(hostBuf), nOut * sizeof(Elem));
   };
 
   std::vector<uint32_t> vDet(nOut);
   std::vector<uint16_t> vX(nOut), vY(nOut);
   std::vector<uint8_t>  vZ(nOut), vW(nOut), vSeed(nOut), vMip(nOut), vMType(nOut);
 
-  copyBack(outDet, vDet.data());
-  copyBack(outX,   vX.data());
-  copyBack(outY,   vY.data());
-  copyBack(outZ,   vZ.data());
-  copyBack(outW,   vW.data());
-  copyBack(outSeed,vSeed.data());
-  copyBack(outMip, vMip.data());
-  copyBack(outMType,vMType.data());
+  copyBack(outDet_, vDet.data());
+  copyBack(outX_,   vX.data());
+  copyBack(outY_,   vY.data());
+  copyBack(outZ_,   vZ.data());
+  copyBack(outW_,   vW.data());
+  copyBack(outSeed_,vSeed.data());
+  copyBack(outMip_, vMip.data());
+  copyBack(outMType_, vMType.data());
 
   for (uint32_t i = 0; i < nOut; ++i) {
-    out.push_back(ClusterProp{
-      vDet[i], vX[i], vY[i], vZ[i], vW[i], vSeed[i], vMip[i], vMType[i]
-    });
+    out.push_back(ClusterProp{ vDet[i], vX[i], vY[i], vZ[i], vW[i], vSeed[i], vMip[i], vMType[i] });
   }
   return out;
 }
 
-}
+} // namespace ot
 
 #ifndef NO_MAIN_IN_UNPACKER
-int main() {
-  return 0;
-}
+int main() { return 0; }
 #endif

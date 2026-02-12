@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/momedmoh/alpaka/thirdParty/catch2/src/catch2/.. -I/home/momedmoh/PackerUnapcker/Unpacker/build/alpaka_build/thirdParty/catch2/generated-includes
 
-CXX_FLAGS =  -cuda --c++17
+CXX_FLAGS = --c++17
 

@@ -26,64 +26,14 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /home/momedmoh/alpaka/thirdParty/catch2/src/catch2/internal/catch_wildcard_pattern.hpp
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/_cplus_macros.h
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/_cplus_preinclude.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/_cuda_preinclude.h
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/alloca.h
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/alloc_traits.h
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/c++config.h
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/bits/floatn.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/cmath
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/cstdlib
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/math.h
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/memory
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/nvhpc/pstl_config.hpp
  /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/pstl/glue_memory_defs.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/stdlib.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/include/tr1/special_function_util.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/builtin_types.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/channel_descriptor.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/common_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/cudacc_ext.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/device_double_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/device_double_functions.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/device_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/device_functions.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/host_config.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/host_defines.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/math_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/math_functions.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/sm_70_rt.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/sm_70_rt.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/sm_80_rt.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/sm_80_rt.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/sm_90_rt.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/crt/sm_90_rt.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/cuda_device_runtime_api.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/cuda_runtime.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/cuda_runtime_api.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/device_atomic_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/device_launch_parameters.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/device_types.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/driver_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/driver_types.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/library_types.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_20_atomic_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_20_intrinsics.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_20_intrinsics.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_30_intrinsics.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_32_atomic_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_32_intrinsics.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_32_intrinsics.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_35_atomic_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_35_intrinsics.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_60_atomic_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/sm_61_intrinsics.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/surface_indirect_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/surface_types.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/texture_indirect_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/texture_types.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/vector_functions.h
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/vector_functions.hpp
- /software/opt/nvhpc/2025/Linux_x86_64/25.1/cuda/12.6/include/vector_types.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
@@ -105,21 +55,9 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/bits/errno.h
  /usr/include/bits/floatn-common.h
  /usr/include/bits/floatn.h
- /usr/include/bits/flt-eval-method.h
- /usr/include/bits/fp-fast.h
- /usr/include/bits/fp-logb.h
- /usr/include/bits/iscanonical.h
  /usr/include/bits/libc-header-start.h
- /usr/include/bits/libm-simd-decl-stubs.h
- /usr/include/bits/local_lim.h
  /usr/include/bits/locale.h
  /usr/include/bits/long-double.h
- /usr/include/bits/math-vector.h
- /usr/include/bits/mathcalls-helper-functions.h
- /usr/include/bits/mathcalls-narrow.h
- /usr/include/bits/mathcalls.h
- /usr/include/bits/posix1_lim.h
- /usr/include/bits/posix2_lim.h
  /usr/include/bits/pthread_stack_min-dynamic.h
  /usr/include/bits/pthreadtypes-arch.h
  /usr/include/bits/pthreadtypes.h
@@ -164,13 +102,11 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/bits/types/wint_t.h
  /usr/include/bits/typesizes.h
  /usr/include/bits/uintn-identity.h
- /usr/include/bits/uio_lim.h
  /usr/include/bits/waitflags.h
  /usr/include/bits/waitstatus.h
  /usr/include/bits/wchar.h
  /usr/include/bits/wctype-wchar.h
  /usr/include/bits/wordsize.h
- /usr/include/bits/xopen_lim.h
  /usr/include/ctype.h
  /usr/include/endian.h
  /usr/include/errno.h
@@ -178,15 +114,12 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/features.h
  /usr/include/gnu/stubs-64.h
  /usr/include/gnu/stubs.h
- /usr/include/limits.h
  /usr/include/linux/errno.h
- /usr/include/linux/limits.h
  /usr/include/linux/posix_types.h
  /usr/include/linux/sched/types.h
  /usr/include/linux/stddef.h
  /usr/include/linux/types.h
  /usr/include/locale.h
- /usr/include/math.h
  /usr/include/pthread.h
  /usr/include/sched.h
  /usr/include/stdc-predef.h
@@ -253,7 +186,6 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/c++/11/bits/shared_ptr.h
  /usr/include/c++/11/bits/shared_ptr_atomic.h
  /usr/include/c++/11/bits/shared_ptr_base.h
- /usr/include/c++/11/bits/specfun.h
  /usr/include/c++/11/bits/sstream.tcc
  /usr/include/c++/11/bits/std_abs.h
  /usr/include/c++/11/bits/stl_algobase.h
@@ -284,7 +216,6 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/c++/11/cerrno
  /usr/include/c++/11/chrono
  /usr/include/c++/11/clocale
- /usr/include/c++/11/cmath
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/cstdint
  /usr/include/c++/11/cstdio
@@ -310,7 +241,6 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/c++/11/istream
  /usr/include/c++/11/limits
  /usr/include/c++/11/map
- /usr/include/c++/11/math.h
  /usr/include/c++/11/memory
  /usr/include/c++/11/new
  /usr/include/c++/11/optional
@@ -319,23 +249,10 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/c++/11/ratio
  /usr/include/c++/11/sstream
  /usr/include/c++/11/stdexcept
- /usr/include/c++/11/stdlib.h
  /usr/include/c++/11/streambuf
  /usr/include/c++/11/string
  /usr/include/c++/11/string_view
  /usr/include/c++/11/system_error
- /usr/include/c++/11/tr1/bessel_function.tcc
- /usr/include/c++/11/tr1/beta_function.tcc
- /usr/include/c++/11/tr1/ell_integral.tcc
- /usr/include/c++/11/tr1/exp_integral.tcc
- /usr/include/c++/11/tr1/gamma.tcc
- /usr/include/c++/11/tr1/hypergeometric.tcc
- /usr/include/c++/11/tr1/legendre_function.tcc
- /usr/include/c++/11/tr1/modified_bessel_func.tcc
- /usr/include/c++/11/tr1/poly_hermite.tcc
- /usr/include/c++/11/tr1/poly_laguerre.tcc
- /usr/include/c++/11/tr1/riemann_zeta.tcc
- /usr/include/c++/11/tr1/special_function_util.h
  /usr/include/c++/11/tuple
  /usr/include/c++/11/type_traits
  /usr/include/c++/11/typeinfo
@@ -352,9 +269,7 @@ alpaka_build/thirdParty/catch2/src/CMakeFiles/Catch2WithMain.dir/catch2/internal
  /usr/include/c++/11/x86_64-redhat-linux/bits/gthr-default.h
  /usr/include/c++/11/x86_64-redhat-linux/bits/gthr.h
  /usr/include/c++/11/x86_64-redhat-linux/bits/os_defines.h
- /usr/lib/gcc/x86_64-redhat-linux/11/include/limits.h
  /usr/lib/gcc/x86_64-redhat-linux/11/include/stdarg.h
  /usr/lib/gcc/x86_64-redhat-linux/11/include/stddef.h
  /usr/lib/gcc/x86_64-redhat-linux/11/include/stdint.h
- /usr/lib/gcc/x86_64-redhat-linux/11/include/syslimits.h
 

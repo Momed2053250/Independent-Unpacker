@@ -73,18 +73,19 @@ CMakeFiles/unpacker_lib.dir/codegen:
 .PHONY : CMakeFiles/unpacker_lib.dir/codegen
 
 CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o: CMakeFiles/unpacker_lib.dir/flags.make
+CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o: CMakeFiles/unpacker_lib.dir/includes_CUDA.rsp
 CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o: /home/momedmoh/PackerUnapcker/Unpacker/src/Unpacker.cpp
 CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o: CMakeFiles/unpacker_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o"
-	/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o -MF CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o.d -o CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o -c /home/momedmoh/PackerUnapcker/Unpacker/src/Unpacker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CUDA object CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o"
+	/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o -MF CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o.d -x cu -c /home/momedmoh/PackerUnapcker/Unpacker/src/Unpacker.cpp -o CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o
 
 CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.i"
-	/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/momedmoh/PackerUnapcker/Unpacker/src/Unpacker.cpp > CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.i
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
 CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.s"
-	/opt/nvhpc/2025/Linux_x86_64/25.1/compilers/bin/nvc++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/momedmoh/PackerUnapcker/Unpacker/src/Unpacker.cpp -o CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
 # Object files for target unpacker_lib
 unpacker_lib_OBJECTS = \
@@ -96,7 +97,7 @@ unpacker_lib_EXTERNAL_OBJECTS =
 libunpacker_lib.a: CMakeFiles/unpacker_lib.dir/src/Unpacker.cpp.o
 libunpacker_lib.a: CMakeFiles/unpacker_lib.dir/build.make
 libunpacker_lib.a: CMakeFiles/unpacker_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libunpacker_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/momedmoh/PackerUnapcker/Unpacker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CUDA static library libunpacker_lib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/unpacker_lib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unpacker_lib.dir/link.txt --verbose=$(VERBOSE)
 
